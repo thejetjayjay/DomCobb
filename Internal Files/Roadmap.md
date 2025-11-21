@@ -8,7 +8,7 @@ Currently in testing: None.
 
 The backlog contains 7 items across knowledge library completion, system fine-tuning, workflow improvements, process optimization, archiving automation, and web interface development. Key themes include completing the remaining knowledge library files, preparing for launch with user onboarding materials, implementing workflow enhancements, automating delivered feature archiving, and creating a web-based user interface for agent creation and management.
 
-Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Reference to New Library Files), Phase 3 (Compare with Kenu's DomCobb), Phase 4 (Review DomCobb's Agent Workflow), Phase 5 (Create README), and Phase 6 (Upload to GitHub).
+Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Reference to New Library Files), Phase 3 (Compare with Kenu's DomCobb), Phase 4 (Review DomCobb's Agent Workflow), Phase 5 (Create README), and Phase 6 (Upload to GitHub). Maintenance update completed on 2025-11-21: DomCobb prompt (v4.1) and agent prompts have been updated and are current.
 
 ---
 

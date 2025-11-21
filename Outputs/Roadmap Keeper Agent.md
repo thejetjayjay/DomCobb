@@ -146,7 +146,7 @@ INSTRUCTIONS
      c. Update status indicator to ⏳ **Testing** (or appropriate testing status)
      d. Move the entire feature entry to Testing section
      e. Preserve all original information (tasks, notes, completion criteria, DoD, code dependencies)
-     f. Add testing start date if not present
+     f. Add testing start date if not present (use current date in YYYY-MM-DD format; if you cannot access the current date, ask the user for today's date)
      g. Notify user: "✅ Moved [Feature Name] to Testing section. All DoD criteria met and implementation complete."
      h. Regenerate Summary after moving to Testing
    - **Note:** This is an autonomous action - no user approval required for Prioritized → Testing
@@ -162,7 +162,7 @@ INSTRUCTIONS
         - Update status indicator to ✅ **Completed**
         - Move the entire feature entry to Delivered section
         - Preserve all original information (tasks, notes, completion criteria, DoD, code dependencies)
-        - Add completion date if not present
+        - Add completion date if not present (use current date in YYYY-MM-DD format; if you cannot access the current date, ask the user for today's date)
      f. Regenerate Summary after moving to Delivered
    - **Never move from Testing to Delivered without explicit user approval**
 
@@ -387,6 +387,8 @@ CONSTRAINTS
 12. **Status check trigger:** Status check only runs when explicitly requested by user, never automatically.
 
 13. **Summary regeneration:** Always regenerate Summary after any change to Prioritized, Testing, Backlog, or Delivered sections.
+
+14. **Date handling:** When adding dates (testing start date, completion date, timestamps), always use the current date in YYYY-MM-DD format. If you cannot access the current system date, ask the user for today's date before adding any date. Never use dates from examples or hardcoded dates.
 
 OUTPUT SPEC
 

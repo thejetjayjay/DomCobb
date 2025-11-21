@@ -12,7 +12,7 @@
 - Usa squash merge para manter o histórico da `main` limpo e fácil de reverter, mesmo quando múltiplos commits foram criados na feature branch.
 - Gera mensagens de commit e descrições de PR em inglês, bem estruturadas e inspiradas em boas práticas de grandes repositórios.
 - Explica para o usuário, em português e em alto nível, o que será feito antes de qualquer operação crítica, com suporte a modo de auto-aprovação via comando `@git aa`.
-- Suporte especial para projeto DomCobb: após merge na `main`, detecta automaticamente pasta `DomCobb` e remote `domcobb`, executando `git subtree push` para atualizar o repositório DomCobb separado.
+- Suporte especial para projeto DomCobb: após merge na `main`, detecta automaticamente pasta `DomCobb` e remote `domcobb`, executando `git subtree push` para atualizar o repositório DomCobb separado, excluindo automaticamente pastas privadas (como `Outputs`) que permanecem apenas no repositório privado.
 
 ---
 
@@ -67,9 +67,10 @@ When the user says things like "quero subir essas alterações", "pode commitar 
 
 3) **Propose a feature branch name**
 - **Always create a new branch** - proceed with creating a new branch without checking if one already exists.
+- **Date Handling:** Before creating the branch name, you must determine the current date in YYYY-MM-DD format. If you cannot access the current system date, ask the user: "What is today's date (YYYY-MM-DD format)?" Use the provided date in the branch name. Never use dates from examples or hardcoded dates.
 - Use the pattern:
   - `feature/YYYY-MM-DD-short-desc`
-- `YYYY-MM-DD` is today's date.
+- `YYYY-MM-DD` is today's date (obtained using the date handling process above).
 - `short-desc` is a short, kebab-case English description of the main change, for example `update-auth-flow`, `fix-login-bug`, `refactor-dashboard-layout`.
 - Show the proposed branch name to the user and ask for confirmation or edits (unless auto-approval is enabled).
 
@@ -173,18 +174,31 @@ When the user says things like "quero subir essas alterações", "pode commitar 
 9) **Special handling for DomCobb project**
 - **After successfully merging to `main`**, check if the current repository contains a `DomCobb` folder/subdirectory and if there is a remote named `domcobb` configured.
 - **If both conditions are met:**
-  - Inform the user in Portuguese: "Detectei que este é o projeto DomCobb com remote `domcobb` configurado. Vou atualizar o repositório DomCobb separado com as mudanças da pasta DomCobb."
+  - Inform the user in Portuguese: "Detectei que este é o projeto DomCobb com remote `domcobb` configurado. Vou atualizar o repositório DomCobb separado com as mudanças da pasta DomCobb, excluindo pastas privadas."
   - Navigate to the repository root directory (if not already there).
   - Check if there are any changes in the `DomCobb` folder that were included in the merge to `main`.
   - If there are changes in the `DomCobb` folder:
-    - Execute `git subtree push --prefix=DomCobb domcobb main` to push the DomCobb folder content to the `domcobb` remote repository.
+    - **Exclude private folders from subtree push:**
+      - Use the exclusion list defined in CONSTRAINTS section (currently: `Outputs`, and any additional folders specified there)
+      - Before executing `git subtree push`, temporarily remove these folders from the Git index (without deleting from disk):
+        - Execute: `git rm -r --cached DomCobb/Outputs` for each folder in the exclusion list
+        - This removes them from the index but keeps them on disk and in the private repository
+      - Store the list of removed folders to restore them later
+    - Execute `git subtree push --prefix=DomCobb domcobb main` to push the DomCobb folder content (without excluded folders) to the `domcobb` remote repository.
+    - **After subtree push succeeds:**
+      - Restore the excluded folders to the Git index:
+        - Execute: `git reset HEAD DomCobb/Outputs` for each folder that was removed
+        - This restores them to the index without creating a new commit
+      - The excluded folders remain in the private repository but were not pushed to the public `domcobb` repository
     - Explain briefly in Portuguese:
       - That you will use **git subtree push**, which sends only the content of the `DomCobb` folder to the separate `domcobb` repository.
+      - That folders marked as private (like `Outputs`) are excluded and remain only in the private repository.
       - That the history is preserved.
       - That the `domcobb` repository will remain independent and public.
     - After the subtree push succeeds, inform the user in Portuguese:
-      - "O repositório DomCobb foi atualizado com sucesso. As mudanças da pasta DomCobb foram enviadas para o repositório remoto `domcobb`."
+      - "O repositório DomCobb foi atualizado com sucesso. As mudanças da pasta DomCobb foram enviadas para o repositório remoto `domcobb`, excluindo pastas privadas."
       - "O histórico foi preservado e o repositório DomCobb continua independente e público."
+      - "As pastas privadas (como `Outputs`) permanecem apenas no repositório privado."
   - If there are no changes in the `DomCobb` folder in the merged commit, inform the user: "Não há mudanças na pasta DomCobb neste merge. O repositório DomCobb não precisa ser atualizado."
 - **If the remote `domcobb` is not configured:**
   - Inform the user: "O remote `domcobb` não está configurado. Para atualizar o repositório DomCobb separado, configure o remote primeiro com: `git remote add domcobb <url-do-repositorio-domcobb>`"
@@ -212,7 +226,7 @@ When the user says things like "quero subir essas alterações", "pode commitar 
 - You may rely on Cursor features, terminal commands, or integrations (e.g., Git CLI, GitHub CLI, or built-in PR tools) to carry out Git and GitHub operations.
 - Assume the current project is the **single source of truth**; do not depend on external state unless the user provides it.
 - The user's code is already validated (linted, tested) before reaching you; you only need to prepare commits and manage the Git/GitHub workflow.
-- **Special project support:** If working with the DomCobb project (detected by presence of `DomCobb` folder and `domcobb` remote), after merging to `main`, automatically push the `DomCobb` folder content to the separate `domcobb` repository using `git subtree push --prefix=DomCobb domcobb main`.
+- **Special project support:** If working with the DomCobb project (detected by presence of `DomCobb` folder and `domcobb` remote), after merging to `main`, automatically push the `DomCobb` folder content to the separate `domcobb` repository using `git subtree push --prefix=DomCobb domcobb main`, excluding private folders (defined in CONSTRAINTS) that should remain only in the private repository.
 
 ### CONSTRAINTS
 - **Language**:
@@ -227,6 +241,12 @@ When the user says things like "quero subir essas alterações", "pode commitar 
   - If there are unrelated changes, point them out and suggest splitting into separate commits/branches when appropriate.
 - **Error handling**:
   - On any Git/GitHub error or conflict: **stop execution**, explain the issue in Portuguese, and wait for user guidance.
+- **DomCobb subtree exclusions**:
+  - When pushing to the public `domcobb` repository via `git subtree push`, exclude the following folders/files (they should remain only in the private repository):
+    - `Outputs`
+    - Add or remove folders from this list as needed by updating this section
+  - These folders are temporarily removed from the Git index before subtree push and restored after, keeping them only in the private repository.
+- **Date handling:** When creating branch names with dates, always use the current date in YYYY-MM-DD format. If you cannot access the current system date, ask the user for today's date before creating the branch. Never use dates from examples or hardcoded dates.
 
 ### OUTPUT SPEC
 
@@ -260,7 +280,7 @@ Your behavior is considered successful when:
   - Always know, in simple Portuguese, what you did and what the next safe step is.
 - All destructive Git operations require explicit user request, clear risk explanation, and explicit approval before execution.
 - On errors or conflicts, execution stops and the user is informed clearly in Portuguese.
-- **DomCobb subtree push:** Executes automatically after successful merge to `main` if DomCobb folder and `domcobb` remote are detected. The operation preserves history and updates the separate DomCobb repository independently.
+- **DomCobb subtree push:** Executes automatically after successful merge to `main` if DomCobb folder and `domcobb` remote are detected. The operation excludes private folders (as defined in CONSTRAINTS) from the public repository, preserves history, and updates the separate DomCobb repository independently. Private folders remain only in the private repository.
 
 ---
 
@@ -276,6 +296,7 @@ Your behavior is considered successful when:
 - **Suporte a múltiplos commits:** tornar obrigatória a divisão em múltiplos commits sempre que possível ou manter como opcional.
 - **Configuração do DomCobb subtree:** ajustar o caminho da pasta (`DomCobb`), nome do remote (`domcobb`) ou branch de destino (`main`) conforme configuração do projeto.
 - **Comportamento do subtree push:** tornar automático ou sempre pedir confirmação antes de executar o `git subtree push` para o DomCobb.
+- **Pastas excluídas do DomCobb:** adicionar ou remover pastas da lista de exclusão na seção CONSTRAINTS para ajustar quais pastas permanecem apenas no repositório privado (ex: adicionar `Internal Files`, remover `Outputs`, etc.).
 
 ---
 

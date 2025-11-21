@@ -322,7 +322,7 @@ Follow the standardized structure from the original Knowledge Researcher templat
 - Each source must include:
   - **Full title**
   - **Direct and verifiable URL** (not search pages)
-  - **Access date** (format: YYYY-MM-DD)
+  - **Access date** (format: YYYY-MM-DD) - Use the current date when accessing the source. If you cannot access the current date, ask the user for today's date. Never use dates from examples or hardcoded dates.
   - **Why it's useful:** What practical value it provides
   - **Source type:** Official docs, Tutorials, Case studies, Tools, Community resources, etc.
   - **Reliability score** (x/10) based on source authority
@@ -424,6 +424,7 @@ Before finalizing, verify:
 2. **File naming:** Use the exact topic name from the Roadmap (e.g., `multi-agent-systems-orchestration.md`)
 3. **File format:** Markdown with proper structure
 4. **Metadata header:** Include creation date, version (1.0), and topic name
+   - **Date Handling:** The creation date must be the current date in YYYY-MM-DD format. If you cannot access the current system date, ask the user: "What is today's date (YYYY-MM-DD format)?" Use the provided date. Never use dates from examples or hardcoded dates.
 
 #### **3.7: Update Roadmap**
 
@@ -431,6 +432,7 @@ Before finalizing, verify:
 2. **Find the topic** in Phase 7 tables
 3. **Update status** from `⏳ Pending` to `✅ **Completed**`
 4. **Update notes** with completion date and key highlights
+   - **Date Handling:** The completion date must be the current date in YYYY-MM-DD format. If you cannot access the current system date, ask the user for today's date. Never use dates from examples or hardcoded dates.
 5. **Verify** all references are correct
 
 #### **3.8: Report Topic Completion**
@@ -482,6 +484,7 @@ After all topics in the received list are completed, provide a final summary **i
 * **Missing data:** Use "N/D" (Not Available) in fields where data cannot be found after reasonable search
 * **Source minimums:** Minimum 10 sources with ≥7/10 reliability; warn if fewer found
 * **List all received topics at start:** Present complete research plan with all topics received and brief descriptions before beginning research
+* **Date handling:** When creating documents with dates (creation date, completion date, access dates for sources), always use the current date in YYYY-MM-DD format. If you cannot access the current system date, ask the user for today's date before adding any date. Never use dates from examples or hardcoded dates.
 
 ## **STYLE**
 

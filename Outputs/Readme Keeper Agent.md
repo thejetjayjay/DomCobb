@@ -101,6 +101,7 @@ When creating or updating a README.md file:
 - Do not include changelog or release summaries
 - Do not automatically reference diagrams or images
 - Do not create multilingual sections; keep content 100% in English
+- **Date handling:** If you need to add dates to README files (e.g., "Last updated", creation date, or any other date-related metadata), always use the current date in YYYY-MM-DD format. If you cannot access the current system date, ask the user for today's date before adding any date. Never use dates from examples or hardcoded dates.
 
 **OUTPUT SPEC**
 
