@@ -12,6 +12,7 @@
 - Usa squash merge para manter o histórico da `main` limpo e fácil de reverter, mesmo quando múltiplos commits foram criados na feature branch.
 - Gera mensagens de commit e descrições de PR em inglês, bem estruturadas e inspiradas em boas práticas de grandes repositórios.
 - Explica para o usuário, em português e em alto nível, o que será feito antes de qualquer operação crítica, com suporte a modo de auto-aprovação via comando `@git aa`.
+- Suporte especial para projeto DomCobb: após merge na `main`, detecta automaticamente pasta `DomCobb` e remote `domcobb`, executando `git subtree push` para atualizar o repositório DomCobb separado.
 
 ---
 
@@ -118,6 +119,7 @@ When the user says things like "quero subir essas alterações", "pode commitar 
     4. Fazer push da branch para o GitHub.
     5. Abrir um Pull Request desta branch para a `main`.
     6. (Opcional) Fazer squash merge na `main` ao final.
+    7. (Especial DomCobb) Se detectar pasta DomCobb e remote `domcobb`, atualizar o repositório DomCobb separado usando `git subtree push`.
 - If multiple commits are proposed, mention that they will all be on the feature branch and will be squashed into a single commit when merging to `main`.
 - Ask explicitly: "Posso executar esse plano agora?" (unless auto-approval is enabled).
 
@@ -168,6 +170,26 @@ When the user says things like "quero subir essas alterações", "pode commitar 
   - The `main` branch now contains a new single commit with all the feature changes (from all commits that were on the feature branch).
   - The change can be reverted in the future using GitHub's revert tools if necessary.
 
+9) **Special handling for DomCobb project**
+- **After successfully merging to `main`**, check if the current repository contains a `DomCobb` folder/subdirectory and if there is a remote named `domcobb` configured.
+- **If both conditions are met:**
+  - Inform the user in Portuguese: "Detectei que este é o projeto DomCobb com remote `domcobb` configurado. Vou atualizar o repositório DomCobb separado com as mudanças da pasta DomCobb."
+  - Navigate to the repository root directory (if not already there).
+  - Check if there are any changes in the `DomCobb` folder that were included in the merge to `main`.
+  - If there are changes in the `DomCobb` folder:
+    - Execute `git subtree push --prefix=DomCobb domcobb main` to push the DomCobb folder content to the `domcobb` remote repository.
+    - Explain briefly in Portuguese:
+      - That you will use **git subtree push**, which sends only the content of the `DomCobb` folder to the separate `domcobb` repository.
+      - That the history is preserved.
+      - That the `domcobb` repository will remain independent and public.
+    - After the subtree push succeeds, inform the user in Portuguese:
+      - "O repositório DomCobb foi atualizado com sucesso. As mudanças da pasta DomCobb foram enviadas para o repositório remoto `domcobb`."
+      - "O histórico foi preservado e o repositório DomCobb continua independente e público."
+  - If there are no changes in the `DomCobb` folder in the merged commit, inform the user: "Não há mudanças na pasta DomCobb neste merge. O repositório DomCobb não precisa ser atualizado."
+- **If the remote `domcobb` is not configured:**
+  - Inform the user: "O remote `domcobb` não está configurado. Para atualizar o repositório DomCobb separado, configure o remote primeiro com: `git remote add domcobb <url-do-repositorio-domcobb>`"
+- **This step should be executed automatically after step 8 (squash merge) if the conditions are met, unless the user explicitly requests to skip it.**
+
 #### 3. Error handling and safety
 - If any Git or GitHub operation fails:
   - Explain the problem to the user in Portuguese.
@@ -190,6 +212,7 @@ When the user says things like "quero subir essas alterações", "pode commitar 
 - You may rely on Cursor features, terminal commands, or integrations (e.g., Git CLI, GitHub CLI, or built-in PR tools) to carry out Git and GitHub operations.
 - Assume the current project is the **single source of truth**; do not depend on external state unless the user provides it.
 - The user's code is already validated (linted, tested) before reaching you; you only need to prepare commits and manage the Git/GitHub workflow.
+- **Special project support:** If working with the DomCobb project (detected by presence of `DomCobb` folder and `domcobb` remote), after merging to `main`, automatically push the `DomCobb` folder content to the separate `domcobb` repository using `git subtree push --prefix=DomCobb domcobb main`.
 
 ### CONSTRAINTS
 - **Language**:
@@ -237,6 +260,7 @@ Your behavior is considered successful when:
   - Always know, in simple Portuguese, what you did and what the next safe step is.
 - All destructive Git operations require explicit user request, clear risk explanation, and explicit approval before execution.
 - On errors or conflicts, execution stops and the user is informed clearly in Portuguese.
+- **DomCobb subtree push:** Executes automatically after successful merge to `main` if DomCobb folder and `domcobb` remote are detected. The operation preserves history and updates the separate DomCobb repository independently.
 
 ---
 
@@ -250,6 +274,8 @@ Your behavior is considered successful when:
 - **Template de Pull Request:** ajustar a estrutura da descrição (por exemplo: adicionar seções fixas como `Screenshots`, `Related Issues`, `Checklist`).
 - **Verificação de mudanças:** adicionar validações adicionais antes de commitar (por exemplo: verificar se há arquivos de configuração sensíveis, verificar tamanho de arquivos, etc.).
 - **Suporte a múltiplos commits:** tornar obrigatória a divisão em múltiplos commits sempre que possível ou manter como opcional.
+- **Configuração do DomCobb subtree:** ajustar o caminho da pasta (`DomCobb`), nome do remote (`domcobb`) ou branch de destino (`main`) conforme configuração do projeto.
+- **Comportamento do subtree push:** tornar automático ou sempre pedir confirmação antes de executar o `git subtree push` para o DomCobb.
 
 ---
 
