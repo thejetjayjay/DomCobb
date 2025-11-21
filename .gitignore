@@ -56,3 +56,8 @@ dist/
 build/
 *.egg-info/
 
+# Private folders - not for public repository
+# These folders are backed up in a separate private repository
+DomCobb/Outputs/
+DomCobb/Internal Files/
+Dev Agents/
