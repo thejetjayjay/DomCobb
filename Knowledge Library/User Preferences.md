@@ -1,4 +1,4 @@
-# User Patterns
+# User Preferences
 
 **Purpose:** Personalize DomCobb behavior per user preferences.
 
@@ -49,3 +49,4 @@
 ## 7. Method
 - Structure: MECE, Pyramid Principle, trees (problem/solution/logic)
 - Reasoning: On-demand scaffolds (CoT, ReAct, ToT, Reflection) without exposing raw reasoning
+
