@@ -1,147 +1,20 @@
 ## **SUMMARY**
 
-The project is currently in active development with 2 features prioritized, 0 features in testing, and 6 features delivered. The Dom Cobb knowledge library and system has completed its foundational phases including critical knowledge library files, main file references, comparison analysis, workflow optimization, README creation, and GitHub upload.
+The project is currently in active development with 0 features prioritized, 0 features in testing, and 8 features delivered. The Dom Cobb knowledge library and system has completed its foundational phases including critical knowledge library files, main file references, comparison analysis, workflow optimization, README creation, GitHub upload, file naming issue resolution, and prompt optimization document update.
 
-Next steps include: Phase 7 (Fix File Naming Issues) and Phase 8 (Update Prompt Optimization Document and Add to Must-Read). These are the immediate priorities for moving the project forward.
+Next steps include: The project is ready for the next phase in the backlog. The immediate priority will be determined based on project needs and backlog items.
 
 Currently in testing: None.
 
-The backlog contains 7 items across knowledge library completion, system fine-tuning, workflow improvements, process optimization, archiving automation, and web interface development. Key themes include completing the remaining knowledge library files, preparing for launch with user onboarding materials, implementing workflow enhancements, automating delivered feature archiving, and creating a web-based user interface for agent creation and management.
+The backlog contains 8 items across knowledge library completion, system fine-tuning, workflow improvements, process optimization, archiving automation, web interface development, and multi-agent system capabilities. Key themes include completing the remaining knowledge library files, preparing for launch with user onboarding materials, implementing workflow enhancements, automating delivered feature archiving, creating a web-based user interface for agent creation and management, and enabling DomCobb to structure multi-agent systems with individual agent prompt creation.
 
-Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Reference to New Library Files), Phase 3 (Compare with Kenu's DomCobb), Phase 4 (Review DomCobb's Agent Workflow), Phase 5 (Create README), and Phase 6 (Upload to GitHub). Maintenance update completed on 2025-11-21: DomCobb prompt (v4.1) and agent prompts have been updated and are current.
+Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Reference to New Library Files), Phase 3 (Compare with Kenu's DomCobb), Phase 4 (Review DomCobb's Agent Workflow), Phase 5 (Create README), Phase 6 (Upload to GitHub), Phase 7 (Fix File Naming Issues), and Phase 8 (Update Prompt Optimization Document and Add to Must-Read). Maintenance update completed on 2025-11-21: DomCobb prompt (v4.2) and agent prompts have been updated and are current.
 
 ---
 
 ## **PRIORITIZED**
 
-### **Phase 6: Upload to GitHub**
-
-**Priority:** Prepare and upload the project to GitHub.
-
-**Status:** ✅ **Completed** (2025-01-20)
-
-**Tasks:**
-- [x] Initialize Git repository (if not already done)
-- [x] Create `.gitignore` appropriate for the project
-- [x] Prepare initial commit with all updated files
-- [x] Create GitHub repository
-- [x] Push code to GitHub
-- [x] Set up repository description and topics
-- [x] Add license if applicable (not needed)
-
-**Completion Criteria:**
-- Git repository initialized and configured
-- `.gitignore` file created with appropriate patterns
-- All project files committed to repository
-- GitHub repository created and configured
-- Code successfully pushed to GitHub
-- Repository description and topics set
-- License added (if applicable)
-
-**Definition of Done:**
-- [x] `.git/` directory exists (or repository initialized)
-- [x] `.gitignore` file exists in project root
-- [x] All project files are tracked in git (verify with `git status`)
-- [x] Initial commit contains all updated files
-- [x] GitHub repository exists and is accessible
-- [x] Code is pushed to GitHub (verify remote connection)
-- [x] Repository has description and topics configured
-- [x] License file exists (if applicable) - Not needed per user preference
-
-**Code Dependencies:**
-- `.gitignore` (to be created)
-- `.git/` (repository directory)
-- All project files (for initial commit)
-
-**Notes:**
-- Check if Git repository is already initialized
-- Ensure `.gitignore` excludes appropriate files (OS files, IDE files, etc.)
-- Consider adding README badges and repository metadata
-
----
-
-### **Phase 7: Fix File Naming Issues**
-
-**Priority:** Investigate and fix incorrect date formatting in file names.
-
-**Status:** ⏳ Pending
-
-**Tasks:**
-- [ ] Investigate why files are being named incorrectly (dates are incorrect)
-- [ ] Identify root cause of date formatting issues
-- [ ] Verify date format implementation in DomCobb process
-- [ ] Test file naming with correct date format (yyyy-mm-dd)
-- [ ] Fix any date formatting bugs or logic errors
-- [ ] Verify all generated files use correct naming convention
-- [ ] Document correct file naming format for future reference
-
-**Completion Criteria:**
-- Root cause of date naming issues identified
-- Date formatting fixed and tested
-- All generated files use correct naming format (agent-name-yyyy-mm-dd.md)
-- Documentation updated with correct naming conventions
-
-**Definition of Done:**
-- [ ] Root cause analysis document or notes exist identifying the issue
-- [ ] Date formatting logic in DomCobb process is verified/corrected
-- [ ] Test files generated with correct date format (yyyy-mm-dd)
-- [ ] All existing incorrectly named files are identified
-- [ ] File naming logic produces correct format consistently
-- [ ] Documentation (DomCobb.md or relevant file) updated with correct naming conventions
-- [ ] No incorrectly named files are generated in test runs
-
-**Code Dependencies:**
-- `DomCobb v4.1.md` (or main DomCobb file - to verify/update date format logic)
-- `Outputs/` directory (to check existing file names)
-- Any scripts or processes that generate file names
-
-**Notes:**
-- Reference the standardized file naming convention in OUTPUT HANDLING section
-- Format should be: `YYYY-MM-DD_[descriptive-name]_[version].md`
-- Check if issue is in DomCobb prompt instructions or in actual file generation process
-
----
-
-### **Phase 8: Update Prompt Optimization Document and Add to Must-Read**
-
-**Priority:** Update the prompt optimization document (`otimizacao-compressao.md`) with latest best practices and add it to DomCobb's Essential Knowledge Library (must-read section).
-
-**Status:** ⏳ Pending
-
-**Tasks:**
-- [ ] Review current `Knowledge Library/otimizacao-compressao.md` content
-- [ ] Research latest prompt optimization and compression techniques (2025)
-- [ ] Update document with current best practices, tools, and methodologies
-- [ ] Ensure document follows same structure and quality as other knowledge library files
-- [ ] Add `otimizacao-compressao.md` to "Essential Knowledge Library (Always Read)" section in `DomCobb v4.1.md`
-- [ ] Update document reference table with appropriate "When to Use" guidance
-- [ ] Verify cross-references and consistency with other knowledge library files
-- [ ] Test that DomCobb correctly references the updated document
-
-**Completion Criteria:**
-- `otimizacao-compressao.md` updated with latest 2025 best practices
-- Document structure and quality matches other knowledge library files
-- Document added to Essential Knowledge Library section in DomCobb
-- Document appears in "must-read" section with appropriate usage guidance
-- Cross-references verified and working correctly
-
-**Definition of Done:**
-- [ ] `Knowledge Library/otimizacao-compressao.md` exists and contains updated content (2025 practices)
-- [ ] Document structure matches format of other knowledge library files (Resumo Executivo, Para que serve, Boas práticas, Como fazer, Pontos de atenção, Exemplos, Checklist)
-- [ ] `DomCobb v4.1.md` contains `otimizacao-compressao.md` in "Essential Knowledge Library (Always Read)" section
-- [ ] Document entry in DomCobb includes appropriate "When to Use" description
-- [ ] Document is properly referenced in the table format matching other essential documents
-- [ ] Content quality matches standards of other updated knowledge library files
-- [ ] No broken references or formatting issues
-
-**Code Dependencies:**
-- `Knowledge Library/otimizacao-compressao.md` (to update)
-- `DomCobb v4.1.md` (to modify Essential Knowledge Library section)
-
-**Notes:**
-- Follow the same update pattern used in Phase 1 for knowledge library files
-- Ensure the document is comprehensive and includes practical examples
-- Add to Essential Knowledge Library because prompt optimization is critical for cost efficiency and quality
+*No features currently prioritized.*
 
 ---
 
@@ -179,10 +52,10 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 | File | Status | Notes |
 | :--- | :--- | :--- |
-| `prompt-engineering-tecnicas.md` | ⏳ Pending | Update advanced prompting techniques |
+| `Technique - Advanced Prompt Engineering.md` | ✅ **Completed** | Updated with comprehensive content including RICCE/CRISPE frameworks, Zero-Shot/Few-Shot techniques, Prompt Chaining, Meta Prompting, advanced CoT variants (ToT, ReAct, Reflexion), risk mitigation strategies, and quality checklists (includes content from prompt-engineering-tecnicas.md) |
 | `raciocinio-scaffolds.md` | ⏳ Pending | Update reasoning scaffold techniques |
 | `seguranca-guardrails.md` | ⏳ Pending | Update security and guardrail practices |
-| `otimizacao-compressao.md` | ⏳ Pending | Update optimization and compression techniques |
+| `Technique - Advanced Context & Token Management.md` | ✅ **Completed** | Updated with comprehensive content including context window optimization, caching strategies, token budgeting, prompt optimization (manual and automated), output optimization, model selection, APO, and gist tokens (includes content from otimizacao-compressao.md) |
 
 #### **High Priority New Topics (from INSTRUCOES-PESQUISA-AGENTE.md)**
 
@@ -395,6 +268,44 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
+### **Phase 15: Multi-Agent System Structuring and Individual Agent Prompt Creation**
+
+**Priority:** Enable DomCobb to structure multi-agent systems and create individual system prompts for each agent in the system.
+
+**Status:** ⏳ Pending
+
+**Tasks:**
+- [ ] Research multi-agent system orchestration patterns and best practices
+- [ ] Analyze existing multi-agent system knowledge library file (`multi-agent-systems-orchestration.md`) when available
+- [ ] Design workflow for multi-agent system structuring:
+  - [ ] Identify agent roles and responsibilities within the system
+  - [ ] Map agent interactions and communication patterns
+  - [ ] Define system-level architecture and coordination mechanisms
+  - [ ] Establish dependency relationships between agents
+- [ ] Extend DomCobb process to handle multi-agent system requests:
+  - [ ] Add step to analyze system requirements and identify needed agents
+  - [ ] Add step to structure the multi-agent system architecture
+  - [ ] Add step to create individual system prompts for each agent
+  - [ ] Ensure each agent prompt includes role, goals, instructions, and inter-agent communication protocols
+- [ ] Create output format for multi-agent systems:
+  - [ ] System architecture document (overview of all agents and their relationships)
+  - [ ] Individual agent prompt files (one per agent)
+  - [ ] Integration guide (how agents work together)
+- [ ] Test multi-agent system creation with various scenarios
+- [ ] Refine workflow based on testing results
+- [ ] Update DomCobb documentation with multi-agent system capabilities
+
+**Phase 15 Completion Criteria:**
+- DomCobb can analyze multi-agent system requirements and structure the system architecture
+- DomCobb can create individual system prompts for each agent in a multi-agent system
+- System architecture document is generated showing agent relationships and interactions
+- Individual agent prompts include proper role definitions, goals, and inter-agent communication protocols
+- Integration guide explains how agents work together
+- Multi-agent system creation workflow tested and validated
+- Documentation updated with multi-agent system capabilities
+
+---
+
 ## **DELIVERED**
 
 ### **Phase 1: Critical Knowledge Library Files**
@@ -579,6 +490,61 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
+### **Phase 7: Fix File Naming Issues**
+
+**Priority:** Investigate and fix incorrect date formatting in file names.
+
+**Status:** ✅ **Completed**
+
+**Tasks:**
+- [x] Investigate why files are being named incorrectly (dates are incorrect)
+- [x] Identify root cause of date formatting issues
+- [x] Verify date format implementation in DomCobb process
+- [x] Test file naming with correct date format (yyyy-mm-dd)
+- [x] Fix any date formatting bugs or logic errors
+- [x] Verify all generated files use correct naming convention
+- [x] Document correct file naming format for future reference
+
+**Completion Criteria:**
+- Root cause of date naming issues identified
+- Date formatting fixed and tested
+- All generated files use correct naming format (agent-name-yyyy-mm-dd.md)
+- Documentation updated with correct naming conventions
+
+**Definition of Done:**
+- [x] Root cause analysis document or notes exist identifying the issue
+- [x] Date formatting logic in DomCobb process is verified/corrected
+- [x] Test files generated with correct date format (yyyy-mm-dd)
+- [x] All existing incorrectly named files are identified
+- [x] File naming logic produces correct format consistently
+- [x] Documentation (DomCobb.md or relevant file) updated with correct naming conventions
+- [x] No incorrectly named files are generated in test runs
+
+**Completion Notes:**
+- **Root Cause Identified:** The agent did not have access to the system date, causing incorrect date formatting in generated file names
+- **Solution Implemented:** Updated DomCobb to ask the user for the current date if it does not have access to the system date
+- This ensures that file names always use the correct date format (YYYY-MM-DD) as specified in the standardized naming convention
+- DomCobb process now includes date request logic to handle cases where system date access is unavailable
+- File naming convention verified: `YYYY-MM-DD_[descriptive-name]_[version].md`
+
+---
+
+### **Phase 8: Update Prompt Optimization Document and Add to Must-Read**
+
+**Priority:** Update the prompt optimization document (`otimizacao-compressao.md`) with latest best practices and add it to DomCobb's Essential Knowledge Library (must-read section).
+
+**Status:** ✅ **Completed** (2025-11-21)
+
+**Completion Notes:**
+- Content from `otimizacao-compressao.md` has been merged into `Technique - Advanced Context & Token Management.md`
+- The merged document includes comprehensive content covering context window optimization, advanced caching strategies, token budgeting, prompt optimization techniques (manual and automated), output token optimization, model selection, APO (Automated Prompt Optimization), and gist tokens
+- Document follows the `Technique -` naming convention
+- Old document `otimizacao-compressao.md` has been deleted
+- All references updated in Roadmap and DomCobb.md
+- Document added to Essential Knowledge Library as a must-read resource
+
+---
+
 ## **TOOLS (Reference Files)**
 
 The library is composed of project files, made available to Dom Cobb.
@@ -671,7 +637,7 @@ This section should be consulted when creating prompts to ensure the AI communic
 
 * **Metaprompt — Patterns for Creation/Optimization (Technique - Advanced Metaprompting.md):** generation/refinement at scale; critique-improve cycles with goals and metrics; comprehensive frameworks (APE, OPRO, DSPy, TextGrad, StraGo) and practical implementation guides.
 
-* **Prompt Engineering — Advanced Techniques (prompt-engineering-tecnicas.md):** Zero/Few-Shot strategies, CoT, Self-Consistency, chaining; complex tasks with steps and checks.
+* **Prompt Engineering — Advanced Techniques (Technique - Advanced Prompt Engineering.md):** Comprehensive guide covering RICCE/CRISPE frameworks, Zero/Few-Shot strategies, CoT, Self-Consistency, Prompt Chaining, Meta Prompting, advanced techniques (ToT, ReAct, Reflexion, APE), risk mitigation, and quality checklists.
 
 * **Context — RAG & Long Context (Technique - RAG & Long Context.md):** decide between RAG, long context or hybrid; guide retrieval, citation and window limits; comprehensive guide covering implementation strategies and best practices.
 
@@ -685,7 +651,7 @@ This section should be consulted when creating prompts to ensure the AI communic
 
 * **Anti-patterns (Technique - Antipatterns.md):** detect vagueness, negatives and lack of structure; checklist before publishing.
 
-* **Optimization & Compression (otimizacao-compressao.md):** reduce tokens/latency while maintaining quality; manual/automatic compression and cache.
+* **Advanced Context & Token Management (Technique - Advanced Context & Token Management.md):** comprehensive guide covering context window optimization, advanced caching strategies, token budgeting, prompt optimization techniques (manual and automated), output token optimization, model selection, APO, and gist tokens; reduce tokens/latency while maintaining quality.
 
 ## **REASONING: How to Identify Which Documents to Use**
 
@@ -717,8 +683,8 @@ Based on the task requirements, select relevant documents from the **Prompting K
 * **RAG/long context needs** → `Technique - RAG & Long Context.md`
 * **Security/sensitive data** → `seguranca-guardrails.md`
 * **Evaluation/metrics needed** → `Technique - Prompt Evaluation & Metrics.md`
-* **Advanced techniques (CoT, few-shot, etc.)** → `prompt-engineering-tecnicas.md`
-* **Optimization/compression** → `otimizacao-compressao.md`
+* **Advanced techniques (CoT, few-shot, etc.)** → `Technique - Advanced Prompt Engineering.md`
+* **Optimization/compression/context management** → `Technique - Advanced Context & Token Management.md`
 * **Quality checks** → `Technique - Antipatterns.md`
 * **Metaprompt creation** → `Technique - Advanced Metaprompting.md`
 

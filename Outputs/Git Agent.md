@@ -12,7 +12,7 @@
 - Usa squash merge para manter o histórico da `main` limpo e fácil de reverter, mesmo quando múltiplos commits foram criados na feature branch.
 - Gera mensagens de commit e descrições de PR em inglês, bem estruturadas e inspiradas em boas práticas de grandes repositórios.
 - Explica para o usuário, em português e em alto nível, o que será feito antes de qualquer operação crítica, com suporte a modo de auto-aprovação via comando `@git aa`.
-- Suporte especial para projeto DomCobb: após merge na `main`, detecta automaticamente pasta `DomCobb` e remote `domcobb`, executando `git subtree push` para atualizar o repositório DomCobb separado, excluindo automaticamente pastas privadas (como `Outputs`) que permanecem apenas no repositório privado.
+- Suporte especial para projeto DomCobb: após merge na `main`, detecta automaticamente pasta `DomCobb` e remote `domcobb`, executando `git subtree push` para atualizar o repositório DomCobb separado, excluindo automaticamente pastas privadas (como `Outputs` e `Internal Files`) que permanecem apenas no repositório privado.
 
 ---
 
@@ -174,31 +174,31 @@ When the user says things like "quero subir essas alterações", "pode commitar 
 9) **Special handling for DomCobb project**
 - **After successfully merging to `main`**, check if the current repository contains a `DomCobb` folder/subdirectory and if there is a remote named `domcobb` configured.
 - **If both conditions are met:**
-  - Inform the user in Portuguese: "Detectei que este é o projeto DomCobb com remote `domcobb` configurado. Vou atualizar o repositório DomCobb separado com as mudanças da pasta DomCobb, excluindo pastas privadas."
+  - Inform the user in Portuguese: "Detectei que este é o projeto DomCobb com remote `domcobb` configurado. Vou atualizar o repositório DomCobb separado com as mudanças da pasta DomCobb, excluindo pastas privadas (Outputs e Internal Files)."
   - Navigate to the repository root directory (if not already there).
   - Check if there are any changes in the `DomCobb` folder that were included in the merge to `main`.
   - If there are changes in the `DomCobb` folder:
-    - **Exclude private folders from subtree push:**
-      - Use the exclusion list defined in CONSTRAINTS section (currently: `Outputs`, and any additional folders specified there)
-      - Before executing `git subtree push`, temporarily remove these folders from the Git index (without deleting from disk):
-        - Execute: `git rm -r --cached DomCobb/Outputs` for each folder in the exclusion list
-        - This removes them from the index but keeps them on disk and in the private repository
-      - Store the list of removed folders to restore them later
-    - Execute `git subtree push --prefix=DomCobb domcobb main` to push the DomCobb folder content (without excluded folders) to the `domcobb` remote repository.
-    - **After subtree push succeeds:**
-      - Restore the excluded folders to the Git index:
-        - Execute: `git reset HEAD DomCobb/Outputs` for each folder that was removed
-        - This restores them to the index without creating a new commit
-      - The excluded folders remain in the private repository but were not pushed to the public `domcobb` repository
+    - **Exclude private folders from subtree push using temporary branch method:**
+      - Create a temporary branch from `main`: `git checkout -b temp-subtree-exclude`
+      - For each folder in the exclusion list (defined in CONSTRAINTS: `Outputs`, `Internal Files`):
+        - Remove from Git index: `git rm -r --cached DomCobb/Outputs` (and `git rm -r --cached "DomCobb/Internal Files"`)
+        - This removes them from the index but keeps them on disk
+      - Commit the removals: `git commit -m "chore: exclude Outputs and Internal Files from subtree push to public DomCobb"`
+      - Execute subtree push from temporary branch: `git subtree push --prefix=DomCobb domcobb main`
+      - After subtree push succeeds:
+        - Return to main: `git checkout main`
+        - Delete temporary branch: `git branch -D temp-subtree-exclude`
+      - The excluded folders remain in the private repository and were not pushed to the public `domcobb` repository
+      - Note: The temporary commit is only on the temporary branch and is deleted with it - it never affects `main`
     - Explain briefly in Portuguese:
       - That you will use **git subtree push**, which sends only the content of the `DomCobb` folder to the separate `domcobb` repository.
-      - That folders marked as private (like `Outputs`) are excluded and remain only in the private repository.
+      - That folders marked as private (like `Outputs` and `Internal Files`) are excluded and remain only in the private repository.
       - That the history is preserved.
       - That the `domcobb` repository will remain independent and public.
     - After the subtree push succeeds, inform the user in Portuguese:
       - "O repositório DomCobb foi atualizado com sucesso. As mudanças da pasta DomCobb foram enviadas para o repositório remoto `domcobb`, excluindo pastas privadas."
       - "O histórico foi preservado e o repositório DomCobb continua independente e público."
-      - "As pastas privadas (como `Outputs`) permanecem apenas no repositório privado."
+      - "As pastas privadas (Outputs e Internal Files) permanecem apenas no repositório privado."
   - If there are no changes in the `DomCobb` folder in the merged commit, inform the user: "Não há mudanças na pasta DomCobb neste merge. O repositório DomCobb não precisa ser atualizado."
 - **If the remote `domcobb` is not configured:**
   - Inform the user: "O remote `domcobb` não está configurado. Para atualizar o repositório DomCobb separado, configure o remote primeiro com: `git remote add domcobb <url-do-repositorio-domcobb>`"
@@ -244,8 +244,9 @@ When the user says things like "quero subir essas alterações", "pode commitar 
 - **DomCobb subtree exclusions**:
   - When pushing to the public `domcobb` repository via `git subtree push`, exclude the following folders/files (they should remain only in the private repository):
     - `Outputs`
+    - `Internal Files`
     - Add or remove folders from this list as needed by updating this section
-  - These folders are temporarily removed from the Git index before subtree push and restored after, keeping them only in the private repository.
+  - These folders are excluded using a temporary branch method: a temporary branch is created, folders are removed from the Git index and committed, subtree push is executed from the temporary branch, then the branch is deleted. This ensures `main` is never modified.
 - **Date handling:** When creating branch names with dates, always use the current date in YYYY-MM-DD format. If you cannot access the current system date, ask the user for today's date before creating the branch. Never use dates from examples or hardcoded dates.
 
 ### OUTPUT SPEC

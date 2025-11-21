@@ -1,6 +1,6 @@
 # DomCobb
 
-**v4.1** | *Last updated: 2025-11-21*
+**v4.2** | *Last updated: 2025-11-21*
 
 > A metaprompt system that helps you create high-quality prompts for AI systems
 
@@ -45,13 +45,13 @@ This is a personal project shared with friends for feedback and improvements. Al
 **Option A: Cursor or Similar Software (Recommended)**
 
 1. Clone or download the repository
-2. Customize `Knowledge Library/User Patterns.md` (essential for personalized results)
-3. Load the metaprompt (`DomCobb v4.1.md`) in your AI system
+2. Customize `Knowledge Library/User Preferences.md` (essential for personalized results)
+3. Load the metaprompt (`DomCobb.md`) in your AI system
 4. Start using DomCobb - Knowledge Library files are accessed automatically via file system
 
 **Option B: Browser-Based Agent (e.g., ChatGPT)**
 
-1. Paste the metaprompt (`DomCobb v4.1.md`) directly in a new chat
+1. Paste the metaprompt (`DomCobb.md`) directly in a new chat
 2. Provide all files from `Knowledge Library/` folder as project context
 3. Specify alternative output methods (browser won't have access to `Outputs/` folder)
 
@@ -61,7 +61,7 @@ This is a personal project shared with friends for feedback and improvements. Al
 
 ### Basic Workflow
 
-1. Load the metaprompt (`DomCobb v4.1.md`) in your AI system
+1. Load the metaprompt (`DomCobb.md`) in your AI system
 2. Describe what you want to achieve (e.g., "I need a prompt to write professional emails")
 3. DomCobb asks clarifying questions and validates understanding
 4. Review draft prompts and provide feedback
@@ -101,10 +101,12 @@ DomCobb follows a structured 13-step process:
 
 ```
 DomCobb/
-├── DomCobb v4.1.md              # Main metaprompt file (load this)
+├── DomCobb.md                    # Main metaprompt file (load this)
 ├── Knowledge Library/            # Reference materials
 │   ├── Essential Files
-│   │   ├── User Patterns.md
+│   │   ├── User Preferences.md
+│   │   ├── Technique - Advanced Prompt Engineering.md
+│   │   ├── Technique - Advanced Context & Token Management.md
 │   │   ├── Technique - Antipatterns.md
 │   │   └── Technique - Prompt Evaluation & Metrics.md
 │   ├── Model-Specific Files
@@ -122,10 +124,8 @@ DomCobb/
 │       ├── Technique - Structured Outputs.md
 │       ├── Technique - RAG & Long Context.md
 │       ├── Technique - Cursor Rules.md
-│       ├── prompt-engineering-tecnicas.md
 │       ├── raciocinio-scaffolds.md
-│       ├── seguranca-guardrails.md
-│       └── otimizacao-compressao.md
+│       └── seguranca-guardrails.md
 ├── Outputs/                      # Generated prompts
 │   ├── Drafts/                   # Draft versions during iteration
 │   └── *.md                      # Final prompts (agent-name-yyyy-mm-dd.md)
@@ -139,7 +139,7 @@ DomCobb/
 
 The Knowledge Library is DomCobb's core strength, providing curated best practices:
 
-- **Essential Files**: Always consulted (`User Patterns.md`, antipatterns checks, evaluation framework)
+- **Essential Files**: Always consulted (`User Preferences.md`, `Technique - Advanced Prompt Engineering.md`, `Technique - Advanced Context & Token Management.md`, antipatterns checks, evaluation framework)
 - **Model-Specific Files**: Loaded based on AI provider mentioned (ChatGPT-5, Claude, Gemini, etc.)
 - **Technique-Specific Files**: Selected based on prompt requirements (system prompting, structured outputs, RAG, etc.)
 
@@ -149,7 +149,7 @@ DomCobb uses smart document selection: always loads Essential Files, then identi
 
 ## Customization
 
-Customize `Knowledge Library/User Patterns.md` to personalize DomCobb's behavior:
+Customize `Knowledge Library/User Preferences.md` to personalize DomCobb's behavior:
 
 - **Research Preferences**: Recency requirements, source reliability thresholds, citation formats
 - **Communication Style**: Formality level, technical jargon tolerance, preferred language
@@ -157,7 +157,7 @@ Customize `Knowledge Library/User Patterns.md` to personalize DomCobb's behavior
 - **Output Format**: Document naming conventions, table formatting, risk indicators
 - **Methodology**: Preferred reasoning frameworks (MECE, Pyramid Principle, etc.)
 
-Review and modify `User Patterns.md` before your first DomCobb session for best results.
+Review and modify `User Preferences.md` before your first DomCobb session for best results.
 
 ---
 
@@ -213,7 +213,7 @@ For detailed development roadmap, see `Internal Files/Roadmap.md`.
 
 ## Resources
 
-- **Main Metaprompt**: `DomCobb v4.1.md` - Load this file to use DomCobb
+- **Main Metaprompt**: `DomCobb.md` - Load this file to use DomCobb
 - **Roadmap**: `Internal Files/Roadmap.md` - Development phases and status
 - **Pending Research**: `Internal Files/Pending Research Topics.md` - Topics to be added
 - **Example Outputs**: Check `Outputs/` folder for examples of generated prompts
@@ -223,10 +223,10 @@ For detailed development roadmap, see `Internal Files/Roadmap.md`.
 ## FAQ
 
 **How do I customize DomCobb?**  
-Customize `Knowledge Library/User Patterns.md` with your preferences, communication style, and technical proficiencies.
+Customize `Knowledge Library/User Preferences.md` with your preferences, communication style, and technical proficiencies.
 
 **Which Knowledge Library files should I review?**  
-Start with essential files: `User Patterns.md`, `Technique - Antipatterns.md`, and `Technique - Prompt Evaluation & Metrics.md`. Then review model-specific and technique-specific files relevant to your use case.
+Start with essential files: `User Preferences.md`, `Technique - Advanced Prompt Engineering.md`, `Technique - Advanced Context & Token Management.md`, `Technique - Antipatterns.md`, and `Technique - Prompt Evaluation & Metrics.md`. Then review model-specific and technique-specific files relevant to your use case.
 
 **Can I use DomCobb with other AI systems not listed?**  
 Yes! DomCobb can create agnostic prompts that work across platforms. For optimal results, create custom Knowledge Library files following the existing file structure.
