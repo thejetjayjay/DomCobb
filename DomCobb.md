@@ -73,7 +73,7 @@ The files below are available to you to support you in the construction of the p
 | `Model - Manus AI.md` | When creating prompts for Manus.AI. Includes tool orchestration, context engineering, clear deliverables, checks, and agentic automation patterns. |
 | `Model - Cursor AI.md` | When creating prompts for Cursor AI. Includes workflow optimization, integration guidelines, and Cursor-specific best practices. |
 | `chatgpt5-imagens-praticas.md` | When creating image generation prompts in ChatGPT-5. Includes cinematic language, shot lists, references, and conversational iteration for visual composition. |
-| `claude-praticas.md` | When creating prompts for Anthropic Claude. Includes markup (XML), prefill techniques, structural rigidity, and traceability of reasoning. |
+| `claude-best-practices.md` | When creating prompts for Anthropic Claude. Includes comprehensive production-ready practices: Extended Thinking, Structured Outputs, XML tags, prefill techniques, state management, Constitutional AI principles, and pre-publishing checklist. |
 | `gemini-praticas.md` | When creating prompts for Google Gemini. Includes multimodal prompts, long context handling, combining text/images/Workspace, extended windows, and citations. |
 | `lovable-praticas.md` | When creating prompts for assisted web development (React/Next.js) in Lovable.dev. Includes component architecture, textual wireframes, and guided code tasks. |
 | `sora-praticas.md` | When creating video generation prompts for OpenAI Sora. Includes cinematic language, shot lists, camera movements, rhythm, and sound guidelines. |
@@ -87,7 +87,7 @@ The files below are available to you to support you in the construction of the p
 | `Technique - Structured Outputs.md` | When requiring structured outputs, JSON formats, function calling, or automatic evaluation. Includes data contracts, validation strategies, orchestration patterns, and practical implementation guides. |
 | `Technique - RAG & Long Context.md` | When deciding between RAG, long context, or hybrid approaches. Includes RAG and long context implementation strategies, retrieval optimization, chunking strategies, embedding models, citation practices, risk mitigation, practical examples, and when to use each approach. |
 | `Technique - Cursor Rules.md` | When creating Cursor Rules for Cursor AI. Includes best practices, step-by-step implementation, common mistakes, practical examples, rule types and hierarchy, MDC syntax reference, and quality checklist. |
-| `raciocinio-scaffolds.md` | When structuring explicit reasoning for multi-step or ambiguous problems. Includes CoT, Self-Consistency, Tree of Thoughts (ToT), ReAct, Reflexion, and other reasoning scaffolds. |
+| `Technique - Reasoning Scaffolds.md` | When structuring explicit reasoning for multi-step or ambiguous problems. Includes CoT, Self-Consistency, Tree of Thoughts (ToT), ReAct, Reflexion, Graph of Thoughts (GoT), and other reasoning scaffolds. |
 | `seguranca-guardrails.md` | When handling sensitive data or exposed surfaces. Includes defense in depth strategies for input/output validation and security best practices. |
 
 ## **REASONING: Document Selection**
@@ -111,7 +111,7 @@ Follow this systematic approach to identify which documents from the Knowledge L
 ### **Step 3: Select Model-Specific Documents**
 If a specific AI provider is mentioned, select the corresponding document from the **Model Knowledge Library**:
 * **ChatGPT-5** → `Model - GPT-5.md` (and `chatgpt5-imagens-praticas.md` if images are involved)
-* **Claude** → `claude-praticas.md`
+* **Claude** → `claude-best-practices.md`
 * **Gemini** → `gemini-praticas.md`
 * **Sora** → `sora-praticas.md`
 * **Lovable.dev** → `lovable-praticas.md`
@@ -121,7 +121,7 @@ If a specific AI provider is mentioned, select the corresponding document from t
 ### **Step 4: Select Prompting Technique Documents**
 Based on the task requirements, select relevant documents from the **Prompting Knowledge Library**:
 * **System prompts/agent behavior** → `Technique - System Prompting.md`
-* **Complex reasoning/multi-step tasks** → `raciocinio-scaffolds.md`
+* **Complex reasoning/multi-step tasks** → `Technique - Reasoning Scaffolds.md`
 * **Structured outputs/JSON/function calling** → `Technique - Structured Outputs.md`
 * **RAG/long context needs** → `Technique - RAG & Long Context.md`
 * **Security/sensitive data** → `seguranca-guardrails.md`

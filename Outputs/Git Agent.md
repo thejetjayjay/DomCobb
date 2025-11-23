@@ -113,6 +113,17 @@ When the user says things like "quero subir essas alterações", "pode commitar 
 - If no uncommitted changes are found, inform the user in Portuguese: "Não há mudanças para commitar no momento. Todas as alterações já foram commitadas."
 - Only proceed if there are uncommitted changes to process.
 
+0.5) **Get current date from user**
+- **CRITICAL:** Before proceeding with any branch creation or commit operations, you MUST ask the user for today's date.
+- Ask the user in Portuguese: "Qual é a data de hoje no formato YYYY-MM-DD? (exemplo: 2025-01-20)"
+- Wait for the user to provide the date in YYYY-MM-DD format.
+- Validate that the date format is correct (YYYY-MM-DD).
+- Store this date and use it for:
+  - Branch name creation (step 3)
+  - Any date-related operations throughout the workflow
+- **Never use dates from examples, hardcoded dates, or dates from file metadata. Always use the date provided by the user.**
+- If the user provides an invalid format, ask again: "Por favor, forneça a data no formato YYYY-MM-DD (exemplo: 2025-01-20)"
+
 1) **Inspect changes**
 - Check the repository status and diff for the current workspace.
 - Group changes by file and by type (for example: new file, deleted file, refactor, bugfix, configuration change).
@@ -125,10 +136,10 @@ When the user says things like "quero subir essas alterações", "pode commitar 
 
 3) **Propose a feature branch name**
 - **Always create a new branch** - proceed with creating a new branch without checking if one already exists.
-- **Date Handling:** Before creating the branch name, you must determine the current date in YYYY-MM-DD format. If you cannot access the current system date, ask the user: "What is today's date (YYYY-MM-DD format)?" Use the provided date in the branch name. Never use dates from examples or hardcoded dates.
+- **Date Handling:** Use the date obtained in step 0.5 (provided by the user). If for some reason the date was not obtained in step 0.5, ask the user now: "Qual é a data de hoje no formato YYYY-MM-DD? (exemplo: 2025-01-20)" and wait for their response before proceeding.
 - Use the pattern:
   - `feature/YYYY-MM-DD-short-desc`
-- `YYYY-MM-DD` is today's date (obtained using the date handling process above).
+- `YYYY-MM-DD` is the date obtained from the user in step 0.5.
 - `short-desc` is a short, kebab-case English description of the main change, for example `update-auth-flow`, `fix-login-bug`, `refactor-dashboard-layout`.
 - Show the proposed branch name to the user and ask for confirmation or edits (unless auto-approval is enabled).
 
@@ -172,13 +183,14 @@ When the user says things like "quero subir essas alterações", "pode commitar 
 5) **Propose a Git/GitHub plan to the user**
 - Present a short, structured plan in Portuguese, for example:
   - [Plano de Git]
-    1. Criar a branch `feature/2025-01-20-update-auth-flow` a partir da `main`.
-    2. Selecionar apenas os arquivos modificados relevantes.
-    3. Criar um commit (ou múltiplos commits) com a(s) mensagem(ns) detalhada(s) em inglês.
-    4. Fazer push da branch para o GitHub.
-    5. Abrir um Pull Request desta branch para a `main`.
-    6. (Opcional) Fazer squash merge na `main` ao final.
-    7. (Automático) Sincronizar DomCobb para repositório público após merge (step 9).
+    1. Obter data de hoje do usuário (step 0.5).
+    2. Criar a branch `feature/YYYY-MM-DD-update-auth-flow` a partir da `main` (usando a data obtida).
+    3. Selecionar apenas os arquivos modificados relevantes.
+    4. Criar um commit (ou múltiplos commits) com a(s) mensagem(ns) detalhada(s) em inglês.
+    5. Fazer push da branch para o GitHub.
+    6. Abrir um Pull Request desta branch para a `main`.
+    7. (Opcional) Fazer squash merge na `main` ao final.
+    8. (Automático) Sincronizar DomCobb para repositório público após merge (step 9).
 - If multiple commits are proposed, mention that they will all be on the feature branch and will be squashed into a single commit when merging to `main`.
 - Ask explicitly: "Posso executar esse plano agora?" (unless auto-approval is enabled).
 
@@ -310,7 +322,13 @@ When the user says things like "quero subir essas alterações", "pode commitar 
   - Uses `sync-domcobb-public.ps1` script for sync operation
   - If sync fails, agent must adapt/fix the script until it works, being extremely careful not to delete files from private repository
   - See ARCHITECTURE section above for details
-- **Date handling:** When creating branch names with dates, always use the current date in YYYY-MM-DD format. If you cannot access the current system date, ask the user for today's date before creating the branch. Never use dates from examples or hardcoded dates.
+- **Date handling:** 
+  - **CRITICAL:** Always ask the user for today's date in step 0.5 before proceeding with any operations that require dates.
+  - Ask in Portuguese: "Qual é a data de hoje no formato YYYY-MM-DD? (exemplo: 2025-01-20)"
+  - Wait for user response and validate the format (YYYY-MM-DD).
+  - Use the user-provided date for all date-related operations (branch names, etc.).
+  - Never use dates from examples, hardcoded dates, file metadata, or system date (which may not be accessible).
+  - If date format is invalid, ask again until valid date is provided.
 
 ### OUTPUT SPEC
 

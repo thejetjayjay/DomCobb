@@ -62,16 +62,21 @@
      - Integration patterns and best practices
      - Recent platform updates and features
 
-5. **`claude-praticas.md`**
-   - **Status:** ⏳ Pending
-   - **Description:** Latest Anthropic Claude Practices
+5. **`claude-best-practices.md`**
+   - **Status:** ✅ **Completed**
+   - **Description:** Comprehensive production-ready Claude practices (includes content from claude-praticas.md)
    - **Focus Areas:**
+     - Extended Thinking for complex reasoning
+     - Structured Outputs for reliable agent systems
      - XML markup and structured prompting
      - Prefill techniques and conversation management
-     - Structural rigidity and prompt organization
-     - Traceability of reasoning and explanations
-     - Latest Claude model capabilities (Claude 3.5 Sonnet, etc.)
-     - Best practices for Anthropic's API
+     - Constitutional AI principles and safety
+     - State management for long-duration tasks
+     - Prompt caching and cost optimization
+     - Long context processing (200K tokens)
+     - Pre-publishing checklist for prompt creators
+     - Latest Claude model capabilities (Claude 3.5 Sonnet, Extended Thinking, etc.)
+     - Production deployment best practices
 
 6. **`gemini-praticas.md`**
    - **Status:** ⏳ Pending
@@ -152,9 +157,9 @@
       - Complex tasks with steps and checks
       - Advanced prompting patterns
 
-13. **`raciocinio-scaffolds.md`**
-    - **Status:** ⏳ Pending
-    - **Description:** Reasoning Scaffold Techniques
+13. **`Technique - Reasoning Scaffolds.md`**
+    - **Status:** ✅ **Completed**
+    - **Description:** Reasoning Scaffold Techniques - Comprehensive guide covering CoT, Self-Consistency, ToT, ReAct, Reflexion, GoT, practical examples, quality checklists, and implementation guides (includes content from raciocinio-scaffolds.md)
     - **Focus Areas:**
       - CoT (Chain-of-Thought) patterns
       - Self-Consistency methods

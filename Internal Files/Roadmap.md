@@ -1,12 +1,12 @@
 ## **SUMMARY**
 
-The project is currently in active development with 0 features prioritized, 0 features in testing, and 8 features delivered. The Dom Cobb knowledge library and system has completed its foundational phases including critical knowledge library files, main file references, comparison analysis, workflow optimization, README creation, GitHub upload, file naming issue resolution, and prompt optimization document update.
+The project is currently in active development with 1 feature prioritized, 0 features in testing, and 8 features delivered. The Dom Cobb knowledge library and system has completed its foundational phases including critical knowledge library files, main file references, comparison analysis, workflow optimization, README creation, GitHub upload, file naming issue resolution, and prompt optimization document update.
 
-Next steps include: The project is ready for the next phase in the backlog. The immediate priority will be determined based on project needs and backlog items.
+Next steps include: Phase 19 (Prompt Optimization and Versioning Review) - implementing prompt optimization for duplicate information and Advanced Context & Token Management techniques before delivery, and reviewing versioning/dating policy across all project files.
 
 Currently in testing: None.
 
-The backlog contains 8 items across knowledge library completion, system fine-tuning, workflow improvements, process optimization, archiving automation, web interface development, and multi-agent system capabilities. Key themes include completing the remaining knowledge library files, preparing for launch with user onboarding materials, implementing workflow enhancements, automating delivered feature archiving, creating a web-based user interface for agent creation and management, and enabling DomCobb to structure multi-agent systems with individual agent prompt creation.
+The backlog contains 11 items across knowledge library completion, system fine-tuning, workflow improvements, process optimization, archiving automation, web interface development, multi-agent system capabilities, user onboarding, repository management, and MCP server integration. Key themes include completing the remaining knowledge library files, preparing for launch with user onboarding materials and automation, implementing workflow enhancements, automating delivered feature archiving, creating a web-based user interface for creating and running agents with DomCobb, enabling DomCobb to structure multi-agent systems with individual agent prompt creation, creating an interactive onboarding agent to help users set up their personalized user patterns file, differentiating README files and commit messages between private and public repositories, and creating an MCP server to expose DomCobb functionality as tools for AI assistants.
 
 Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Reference to New Library Files), Phase 3 (Compare with Kenu's DomCobb), Phase 4 (Review DomCobb's Agent Workflow), Phase 5 (Create README), Phase 6 (Upload to GitHub), Phase 7 (Fix File Naming Issues), and Phase 8 (Update Prompt Optimization Document and Add to Must-Read). Maintenance update completed on 2025-11-21: DomCobb prompt (v4.2) and agent prompts have been updated and are current.
 
@@ -14,7 +14,82 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ## **PRIORITIZED**
 
-*No features currently prioritized.*
+### **Phase 19: Prompt Optimization and Versioning Review**
+
+**Priority:** Optimize final prompts for duplicate information and apply Advanced Context & Token Management techniques before delivery. Review and evaluate removing dates/versions from all files except new agent creation, README files, and git syncs.
+
+**Status:** ⏳ Pending
+
+**Tasks:**
+- [ ] **Prompt Optimization Implementation:**
+  - [ ] Add optimization step to DomCobb workflow (between step 11 "Review the final prompt" and step 12 "Publish the final prompt")
+  - [ ] Implement duplicate information detection and removal:
+    - [ ] Scan final prompt for repeated concepts, instructions, or information
+    - [ ] Identify redundant sections that can be consolidated
+    - [ ] Remove duplicate content while preserving meaning and clarity
+  - [ ] Apply Advanced Context & Token Management techniques:
+    - [ ] Apply manual optimization (remove unnecessary words, use direct language)
+    - [ ] Structure prompt for caching (static content at beginning, dynamic at end)
+    - [ ] Optimize output tokens (instruct for conciseness, use structured formats)
+    - [ ] Apply token budgeting principles if applicable
+    - [ ] Verify prompt follows best practices from `Technique - Advanced Context & Token Management.md`
+  - [ ] Integrate optimization into DomCobb process:
+    - [ ] Update step 11 to include optimization checks
+    - [ ] Add optimization validation before final prompt publication
+    - [ ] Ensure optimization doesn't compromise prompt quality or functionality
+- [ ] **Versioning and Dating Review:**
+  - [ ] Audit all files in the project for date/version usage:
+    - [ ] Review Knowledge Library files for dates/versions
+    - [ ] Review Outputs folder files (agent prompts) for dates/versions
+    - [ ] Review Internal Files for dates/versions
+    - [ ] Review DomCobb.md and other core files for dates/versions
+  - [ ] Define versioning/dating policy:
+    - [ ] Keep dates/versions in: new agent creation files (Outputs/*.md), README files, git sync operations
+    - [ ] Remove dates/versions from: Knowledge Library files, Internal Files (except roadmap), core system files (DomCobb.md)
+    - [ ] Document exceptions and rationale
+  - [ ] Implement changes:
+    - [ ] Remove dates/versions from Knowledge Library files (except creation dates if needed for reference)
+    - [ ] Update DomCobb.md to remove version metadata from main content (keep only if needed for tracking)
+    - [ ] Update agent output templates to clarify when dates/versions should be included
+    - [ ] Update file naming conventions documentation
+  - [ ] Update DomCobb workflow:
+    - [ ] Modify step 12 to clarify date usage only for new agent files
+    - [ ] Update constraints section regarding date handling
+    - [ ] Ensure README and git operations continue to use dates/versions appropriately
+
+**Code Dependencies:**
+- `DomCobb.md` (modification - add optimization step, update constraints)
+- `Knowledge Library/Technique - Advanced Context & Token Management.md` (reference - optimization techniques)
+- `Knowledge Library/Technique - Antipatterns.md` (reference - quality checks)
+- `Outputs/*.md` (review - date/version usage patterns)
+- `Knowledge Library/*.md` (modification - remove dates/versions)
+- `Internal Files/Roadmap.md` (reference - keep dates for roadmap tracking)
+- `README.md` (reference - keep dates/versions)
+
+**Definition of Done:**
+- [ ] Optimization step added to DomCobb workflow (between review and publication)
+- [ ] Duplicate information detection implemented and working
+- [ ] Advanced Context & Token Management techniques applied to final prompts before delivery
+- [ ] Optimization step tested with various prompt types and verified to improve token efficiency without quality loss
+- [ ] Complete audit of all project files for date/version usage completed
+- [ ] Versioning/dating policy documented with clear guidelines
+- [ ] Dates/versions removed from Knowledge Library files (except where necessary)
+- [ ] Dates/versions removed from core system files (DomCobb.md) except where needed for tracking
+- [ ] Agent creation files (Outputs/*.md) continue to include dates in filenames and metadata
+- [ ] README files continue to include dates/versions appropriately
+- [ ] Git sync operations continue to use dates/versions
+- [ ] DomCobb.md workflow updated to reflect new optimization step and versioning policy
+- [ ] All changes tested and verified
+- [ ] Documentation updated to reflect new practices
+
+**Phase 19 Completion Criteria:**
+- Prompt optimization step integrated into DomCobb workflow and functional
+- Final prompts are optimized for duplicate information and token efficiency before delivery
+- Advanced Context & Token Management techniques are systematically applied
+- Versioning/dating policy defined and implemented across all project files
+- Dates/versions removed from appropriate files while preserved in agent creation, README, and git operations
+- DomCobb workflow updated and tested
+- All documentation reflects new optimization and versioning practices
 
 ---
 
@@ -40,7 +115,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 | :--- | :--- | :--- |
 | `chatgpt5-imagens-praticas.md` | ⏳ Pending | Update image generation practices for GPT-5 / DALL-E 4 |
 | `lovable-praticas.md` | ⏳ Pending | Needs update with latest Lovable.dev practices |
-| `claude-praticas.md` | ⏳ Pending | Needs update with latest Claude practices |
+| `claude-best-practices.md` | ✅ **Completed** | Updated with comprehensive Claude practices including Extended Thinking, Structured Outputs, XML tags, prefill techniques, state management, metaprompting, and pre-publishing checklist (includes content from claude-praticas.md) |
 | `gemini-praticas.md` | ⏳ Pending | Update with latest Gemini practices |
 | `sora-praticas.md` | ⏳ Pending | Update with latest Sora video generation practices |
 | `gpt-4o-o1-o3-praticas.md` | ⏳ Pending | Create file for GPT-4o / o1 / o3 specifics (Medium priority) |
@@ -53,7 +128,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 | File | Status | Notes |
 | :--- | :--- | :--- |
 | `Technique - Advanced Prompt Engineering.md` | ✅ **Completed** | Updated with comprehensive content including RICCE/CRISPE frameworks, Zero-Shot/Few-Shot techniques, Prompt Chaining, Meta Prompting, advanced CoT variants (ToT, ReAct, Reflexion), risk mitigation strategies, and quality checklists (includes content from prompt-engineering-tecnicas.md) |
-| `raciocinio-scaffolds.md` | ⏳ Pending | Update reasoning scaffold techniques |
+| `Technique - Reasoning Scaffolds.md` | ✅ **Completed** | Updated with comprehensive content including CoT, Self-Consistency, ToT, ReAct, Reflexion, GoT, practical examples, quality checklists, and implementation guides (includes content from raciocinio-scaffolds.md) |
 | `seguranca-guardrails.md` | ⏳ Pending | Update security and guardrail practices |
 | `Technique - Advanced Context & Token Management.md` | ✅ **Completed** | Updated with comprehensive content including context window optimization, caching strategies, token budgeting, prompt optimization (manual and automated), output optimization, model selection, APO, and gist tokens (includes content from otimizacao-compressao.md) |
 
@@ -238,33 +313,38 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ### **Phase 14: Create Web Interface for DomCobb**
 
-**Priority:** Create a web interface where users can create their agents with DomCobb and easily access or edit them.
+**Priority:** Create a web interface where users can create and run their agents with DomCobb and easily access or edit them.
 
 **Status:** ⏳ Pending
 
 **Tasks:**
-- [ ] Design web interface architecture and user flow
+- [ ] Design web interface architecture for agent creation and execution
 - [ ] Create user authentication and session management system
-- [ ] Build agent creation interface (form-based or conversational)
-- [ ] Implement agent storage system (database or file-based)
-- [ ] Create agent listing/dashboard page for accessing created agents
-- [ ] Build agent editing interface
-- [ ] Implement agent execution/integration with DomCobb backend
-- [ ] Add agent sharing/collaboration features (optional)
-- [ ] Create user onboarding flow for web interface
-- [ ] Implement responsive design for mobile and desktop
-- [ ] Add search and filtering capabilities for agent library
-- [ ] Test web interface with various user scenarios
+- [ ] Build agent creation interface (form-based or conversational input)
+- [ ] Implement DomCobb integration backend for agent generation
+- [ ] Create agent execution/run interface for testing created agents
+- [ ] Build agent storage system (database or file-based) for user's created agents
+- [ ] Implement agent listing/dashboard for managing created agents
+- [ ] Add agent editing capabilities for existing agents
+- [ ] Create agent execution environment with real-time feedback
+- [ ] Implement agent sharing/collaboration features (optional)
+- [ ] Add responsive design for mobile and desktop access
+- [ ] Create user onboarding flow for the web interface
+- [ ] Implement search and filtering for agent library
+- [ ] Add agent versioning and history tracking
+- [ ] Test web interface with various user scenarios and agent types
 - [ ] Deploy web interface to hosting platform
 
 **Phase 14 Completion Criteria:**
-- Web interface deployed and accessible
-- Users can create agents through the interface
-- Users can access and view their created agents
+- Web interface deployed and accessible to users
+- Users can create agents through the web interface using DomCobb
+- Users can run/execute their created agents through the interface
+- Users can access, view, and manage their created agents
 - Users can edit existing agents
+- Agent creation integrates seamlessly with DomCobb process
 - Interface is responsive and user-friendly
-- Agent creation integrates with DomCobb process
 - User authentication and data persistence working correctly
+- Agent execution provides real-time feedback and results
 
 ---
 
@@ -303,6 +383,178 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 - Integration guide explains how agents work together
 - Multi-agent system creation workflow tested and validated
 - Documentation updated with multi-agent system capabilities
+
+---
+
+### **Phase 16: Create Onboarding Agent**
+
+**Priority:** Create an interactive onboarding agent that guides users through setting up their user patterns file by asking questions and filling it automatically.
+
+**Status:** ⏳ Pending
+
+**Tasks:**
+- [ ] Design onboarding agent prompt that asks structured questions to collect user information
+- [ ] Create question set covering all sections of user patterns file:
+  - [ ] Technical proficiencies (programming languages, AI/ML knowledge, frameworks)
+  - [ ] Communication preferences (technical detail level, jargon tolerance, explanation style)
+  - [ ] Background context (professional role, AI tools experience, methodologies)
+  - [ ] Learning preferences (information delivery style, structured vs conversational)
+- [ ] Implement interactive questioning flow that adapts based on user responses
+- [ ] Create agent logic to format responses into proper User Patterns file structure
+- [ ] Ensure agent generates complete and properly formatted `User Preferences.md` or `User Patterns.md` file
+- [ ] Configure privacy settings to ensure user patterns file is excluded from public repository sync
+- [ ] Update `.gitignore` if needed to explicitly exclude user patterns file from public repo
+- [ ] Test onboarding agent with various user types and scenarios
+- [ ] Create documentation for using the onboarding agent
+- [ ] Validate that generated user patterns file follows the structure outlined in roadmap TOOLS section
+
+**Phase 16 Completion Criteria:**
+- Onboarding agent created and functional
+- Agent can successfully collect all necessary user information through interactive questions
+- Agent generates properly formatted user patterns file with all required sections
+- User patterns file is correctly excluded from public repository synchronization
+- Onboarding process tested with diverse user scenarios
+- Documentation complete for using the onboarding agent
+
+---
+
+### **Phase 17: Differentiate README Files and Commit Messages for Private vs Public Repositories**
+
+**Priority:** Implement distinct README content and commit message styles for the private Agents repository and the public DomCobb repository, ensuring appropriate content and tone for each audience.
+
+**Status:** ⏳ Pending
+
+**Tasks:**
+- [ ] Analyze current README.md content and identify what should differ between repositories
+- [ ] Define content strategy for private repository README:
+  - [ ] Include internal development context and processes
+  - [ ] Reference private folders and internal workflows
+  - [ ] Include notes about personal development practices
+  - [ ] Add context specific to private repository structure
+- [ ] Define content strategy for public repository README:
+  - [ ] Focus on public-facing documentation
+  - [ ] Remove internal/private references
+  - [ ] Emphasize user-facing features and setup instructions
+  - [ ] Ensure professional tone suitable for open-source audience
+- [ ] Update Git Agent to differentiate commit message styles:
+  - [ ] Private repository commits: Allow more detailed internal context, personal notes, or development-specific information
+  - [ ] Public repository commits: Use cleaner, more professional messages suitable for public visibility
+  - [ ] Create commit message templates for each repository type
+- [ ] Implement dual README strategy:
+  - [ ] Create/maintain separate README.md files for each repository
+  - [ ] Ensure private repository README includes information about DomCobb sync process
+  - [ ] Ensure public repository README is polished and user-friendly
+  - [ ] Update sync process to handle README differences appropriately
+- [ ] Update Git Agent workflow to generate appropriate commit messages based on target repository
+- [ ] Test commit message generation for both repository types
+- [ ] Test README sync process to ensure correct files are used in each repository
+- [ ] Document the differentiation strategy in Git Agent instructions
+- [ ] Verify that private/internal references are properly excluded from public repository content
+
+**Phase 17 Completion Criteria:**
+- Separate README strategies defined and implemented for private and public repositories
+- Git Agent generates differentiated commit messages based on repository context
+- Private repository commits can include internal/development context
+- Public repository commits are professional and suitable for public visibility
+- README files are appropriately tailored for their respective audiences
+- Sync process correctly handles different README files for each repository
+- Documentation updated with differentiation strategy and guidelines
+
+---
+
+### **Phase 18: Create MCP Server for DomCobb**
+
+**Priority:** Create a Model Context Protocol (MCP) server that exposes DomCobb functionality as tools, enabling AI assistants to interact with DomCobb's knowledge library, agent creation workflow, and output management.
+
+**Status:** ⏳ Pending
+
+**Tasks:**
+- [ ] Research MCP server architecture and implementation patterns
+- [ ] Design MCP server structure and tool definitions:
+  - [ ] Define tool categories (Knowledge Library, Agent Management, Output Management, User Preferences, Roadmap Integration)
+  - [ ] Design tool schemas with input/output specifications
+  - [ ] Define error handling and validation patterns
+- [ ] Implement Knowledge Library tools:
+  - [ ] `domcobb_list_knowledge_files` - List all available knowledge library files (categorized by Model/Technique/Essential)
+  - [ ] `domcobb_read_knowledge_file` - Read a specific knowledge library file by name
+  - [ ] `domcobb_search_knowledge` - Search knowledge library content by keywords/topics
+- [ ] Implement Agent Management tools:
+  - [ ] `domcobb_create_agent` - Start agent creation process (initiate DomCobb workflow)
+  - [ ] `domcobb_get_draft` - Retrieve a draft agent prompt by name/date
+  - [ ] `domcobb_finalize_agent` - Finalize and save an agent prompt to Outputs folder
+  - [ ] `domcobb_list_agents` - List all created agents (from Outputs folder)
+  - [ ] `domcobb_read_agent` - Read a specific agent prompt file
+- [ ] Implement Output Management tools:
+  - [ ] `domcobb_list_outputs` - List all output files (agents and drafts)
+  - [ ] `domcobb_read_output` - Read a specific output file
+  - [ ] `domcobb_search_outputs` - Search output files by name/keywords
+- [ ] Implement User Preferences tools:
+  - [ ] `domcobb_get_user_preferences` - Read user preferences file
+  - [ ] `domcobb_update_user_preferences` - Update user preferences (with validation)
+- [ ] Implement Roadmap Integration tools (optional):
+  - [ ] `domcobb_get_roadmap` - Read roadmap status and current features
+  - [ ] `domcobb_get_feature_status` - Get status of a specific roadmap feature
+- [ ] Implement MCP server core:
+  - [ ] Set up MCP server framework (Node.js/Python)
+  - [ ] Implement tool registration and routing
+  - [ ] Add file system operations for Knowledge Library and Outputs
+  - [ ] Implement DomCobb workflow integration (orchestrate agent creation process)
+  - [ ] Add error handling and validation
+  - [ ] Implement logging and debugging capabilities
+- [ ] Create configuration and setup:
+  - [ ] Create MCP server configuration file
+  - [ ] Document installation and setup process
+  - [ ] Create example MCP client configurations for popular AI assistants
+- [ ] Testing:
+  - [ ] Test all tools individually
+  - [ ] Test end-to-end agent creation workflow via MCP
+  - [ ] Test error handling and edge cases
+  - [ ] Test with different AI assistants (Claude Desktop, Cursor, etc.)
+  - [ ] Validate file operations and permissions
+- [ ] Documentation:
+  - [ ] Create MCP server README with setup instructions
+  - [ ] Document all available tools with examples
+  - [ ] Create usage examples for common workflows
+  - [ ] Document integration with different AI assistants
+  - [ ] Add troubleshooting guide
+
+**Suggested MCP Tools:**
+
+**Knowledge Library Tools:**
+- `domcobb_list_knowledge_files` - Returns categorized list of all knowledge library files
+- `domcobb_read_knowledge_file` - Reads a specific knowledge library file (Model/Technique/Essential)
+- `domcobb_search_knowledge` - Searches knowledge library content by keywords/topics
+
+**Agent Management Tools:**
+- `domcobb_create_agent` - Initiates DomCobb agent creation workflow (interactive process)
+- `domcobb_get_draft` - Retrieves a draft agent prompt by name/date
+- `domcobb_finalize_agent` - Finalizes and saves an agent prompt to Outputs folder
+- `domcobb_list_agents` - Lists all created agents from Outputs folder
+- `domcobb_read_agent` - Reads a specific agent prompt file
+
+**Output Management Tools:**
+- `domcobb_list_outputs` - Lists all output files (agents and drafts)
+- `domcobb_read_output` - Reads a specific output file
+- `domcobb_search_outputs` - Searches output files by name/keywords
+
+**User Preferences Tools:**
+- `domcobb_get_user_preferences` - Reads user preferences file
+- `domcobb_update_user_preferences` - Updates user preferences with validation
+
+**Roadmap Integration Tools (Optional):**
+- `domcobb_get_roadmap` - Reads roadmap status and current features
+- `domcobb_get_feature_status` - Gets status of a specific roadmap feature
+
+**Phase 18 Completion Criteria:**
+- MCP server implemented and functional
+- All core tools (Knowledge Library, Agent Management, Output Management, User Preferences) are working
+- MCP server can be installed and configured by users
+- Agent creation workflow can be executed via MCP tools
+- All tools are properly documented with examples
+- MCP server tested with at least one AI assistant (Claude Desktop, Cursor, etc.)
+- Error handling and validation working correctly
+- File operations are secure and properly validated
+- Documentation complete with setup instructions and usage examples
 
 ---
 
@@ -627,7 +879,7 @@ This section should be consulted when creating prompts to ensure the AI communic
 
 * **Google Gemini (gemini-praticas.md):** multimodal prompts and long context; combine text, images and Workspace; instructions for extended windows and citations.
 
-* **Anthropic Claude (claude-praticas.md):** prompts with markup (XML) and prefill; greater structural rigidity and traceability of reasoning.
+* **Anthropic Claude (claude-best-practices.md):** comprehensive production-ready Claude practices including Extended Thinking, Structured Outputs, XML tags, prefill techniques, state management, metaprompting, Constitutional AI principles, and pre-publishing checklist.
 
 * **OpenAI Sora (sora-praticas.md):** video prompts with cinematic language; shot lists, camera movements, rhythm and sound guidelines.
 
@@ -641,7 +893,7 @@ This section should be consulted when creating prompts to ensure the AI communic
 
 * **Context — RAG & Long Context (Technique - RAG & Long Context.md):** decide between RAG, long context or hybrid; guide retrieval, citation and window limits; comprehensive guide covering implementation strategies and best practices.
 
-* **Reasoning — Scaffolds (raciocinio-scaffolds.md):** structure explicit reasoning (CoT, Self-Consistency, ToT, ReAct, Reflexion); indicated for multi-step/ambiguous problems.
+* **Reasoning — Scaffolds (Technique - Reasoning Scaffolds.md):** structure explicit reasoning (CoT, Self-Consistency, ToT, ReAct, Reflexion, GoT); indicated for multi-step/ambiguous problems.
 
 * **Structured Outputs — JSON/Function Calling/Evaluation (Technique - Structured Outputs.md):** force formats, integrate tools and enable automatic evaluation; data contracts and validation; comprehensive guide covering evolution, provider comparison, validation strategies, orchestration patterns, and practical implementation.
 
@@ -669,7 +921,7 @@ The agent should follow a systematic approach to identify which documents from t
 ### **Step 3: Select Model-Specific Documents**
 If a specific AI provider is mentioned, select the corresponding document from the **Model Knowledge Library**:
 * **ChatGPT-5** → `Model - GPT-5.md` (and `chatgpt5-imagens-praticas.md` if images are involved)
-* **Claude** → `claude-praticas.md`
+* **Claude** → `claude-best-practices.md`
 * **Gemini** → `gemini-praticas.md`
 * **Sora** → `sora-praticas.md`
 * **Lovable.dev** → `lovable-praticas.md`
@@ -678,7 +930,7 @@ If a specific AI provider is mentioned, select the corresponding document from t
 ### **Step 4: Select Prompting Technique Documents**
 Based on the task requirements, select relevant documents from the **Prompting Knowledge Library**:
 * **System prompts/agent behavior** → `Technique - System Prompting.md`
-* **Complex reasoning/multi-step tasks** → `raciocinio-scaffolds.md`
+* **Complex reasoning/multi-step tasks** → `Technique - Reasoning Scaffolds.md`
 * **Structured outputs/JSON/function calling** → `Technique - Structured Outputs.md`
 * **RAG/long context needs** → `Technique - RAG & Long Context.md`
 * **Security/sensitive data** → `seguranca-guardrails.md`
@@ -697,7 +949,7 @@ Based on the task requirements, select relevant documents from the **Prompting K
 2. **Task type:** Agent with tool usage → Load `Technique - System Prompting.md` (for agent behavior definition)
 3. **Structured outputs:** Agent needs to return formatted data → Load `Technique - Structured Outputs.md` (for output specification)
 4. **User patterns:** Always required → Load `User Patterns (PDF)`
-5. **Reasoning:** Multi-step agent task → Consider `raciocinio-scaffolds.md` if complex planning needed
+5. **Reasoning:** Multi-step agent task → Consider `Technique - Reasoning Scaffolds.md` if complex planning needed
 
 **Selected Documents:**
 - User Patterns (PDF) - *always included*
