@@ -1,6 +1,6 @@
 # DomCobb
 
-**v4.2** | *Last updated: 2025-11-21*
+**v4.2** | *Last updated: 2025-11-23*
 
 > A metaprompt system that helps you create high-quality prompts for AI systems
 
@@ -53,7 +53,7 @@ This is a personal project shared with friends for feedback and improvements. Al
 
 1. Paste the metaprompt (`DomCobb.md`) directly in a new chat
 2. Provide all files from `Knowledge Library/` folder as project context
-3. Specify alternative output methods (browser won't have access to `Outputs/` folder)
+3. Specify alternative output methods (prompts will be saved locally by the user)
 
 ---
 
@@ -82,7 +82,7 @@ DomCobb follows a structured 13-step process:
 9. Adjust based on feedback (typically 2-3 cycles)
 10. Generate final prompt
 11. Review for inconsistencies and best practices
-12. Publish final prompt to `Outputs/agent-name-yyyy-mm-dd.md`
+12. Publish final prompt (saved locally by user)
 13. Refinement if needed
 
 ### Examples
@@ -126,13 +126,6 @@ DomCobb/
 │       ├── Technique - Cursor Rules.md
 │       ├── Technique - Reasoning Scaffolds.md
 │       └── seguranca-guardrails.md
-├── Outputs/                      # Generated prompts
-│   ├── Drafts/                   # Draft versions during iteration
-│   └── *.md                      # Final prompts (agent-name-yyyy-mm-dd.md)
-└── Internal Files/               # Development documents
-    ├── Roadmap.md
-    ├── Pending Research Topics.md
-    └── Phase 3 - DomCobb Comparison Analysis.md
 ```
 
 ### Knowledge Library
@@ -163,14 +156,14 @@ Review and modify `User Preferences.md` before your first DomCobb session for be
 
 ## Output Format
 
-DomCobb generates prompts in a standardized format saved as `Outputs/agent-name-yyyy-mm-dd.md`:
+DomCobb generates prompts in a standardized format:
 
 1. **SUMMARY**: What the prompt does, key features, use cases (3-5 bullets)
 2. **FINAL PROMPT**: Pasteable text with labeled sections (ROLE, GOALS, INSTRUCTIONS, CONTEXT, CONSTRAINTS, OUTPUT SPEC, EVAL)
 3. **POSSIBLE VARIABLES**: Customization options and alternative approaches
 4. **NOTES AND SOURCES**: Rationale, assumptions, and sources consulted
 
-Drafts are saved to `Outputs/drafts/draft-agent-name-yyyy-mm-dd.md` during iteration cycles.
+Prompts are saved locally by the user during the iteration process.
 
 ---
 
@@ -205,18 +198,22 @@ When updating Knowledge Library files:
 
 ### Research Guidelines
 
-See `Internal Files/Pending Research Topics.md` for topics to be added to the Knowledge Library, research priorities, and current status.
+Knowledge Library files are continuously updated with new research and best practices. Follow existing file structure and formatting conventions when contributing.
 
-For detailed development roadmap, see `Internal Files/Roadmap.md`.
+---
+
+## Multi-Agent System Support
+
+DomCobb can create prompts for **multi-agent systems** with supervisor/worker orchestration patterns. When creating multi-agent systems, DomCobb structures individual agent prompts with clear roles, communication protocols, and coordination mechanisms.
+
+The DomCobb project itself uses a multi-agent backoffice system for maintenance (roadmap management, documentation updates, Git workflows), demonstrating production-grade orchestration patterns that can be reused in your own multi-agent designs.
 
 ---
 
 ## Resources
 
 - **Main Metaprompt**: `DomCobb.md` - Load this file to use DomCobb
-- **Roadmap**: `Internal Files/Roadmap.md` - Development phases and status
-- **Pending Research**: `Internal Files/Pending Research Topics.md` - Topics to be added
-- **Example Outputs**: Check `Outputs/` folder for examples of generated prompts
+- **Knowledge Library**: Comprehensive collection of model-specific and technique-specific best practices
 
 ---
 
