@@ -1,95 +1,42 @@
-## **SUMMARY**
+## **SUMMARY TABLE**
 
-The project is currently in active development with 1 feature prioritized, 0 features in testing, and 8 features delivered. The Dom Cobb knowledge library and system has completed its foundational phases including critical knowledge library files, main file references, comparison analysis, workflow optimization, README creation, GitHub upload, file naming issue resolution, and prompt optimization document update.
-
-Next steps include: Phase 19 (Prompt Optimization and Versioning Review) - implementing prompt optimization for duplicate information and Advanced Context & Token Management techniques before delivery, and reviewing versioning/dating policy across all project files.
-
-Currently in testing: None.
-
-The backlog contains 11 items across knowledge library completion, system fine-tuning, workflow improvements, process optimization, archiving automation, web interface development, multi-agent system capabilities, user onboarding, repository management, and MCP server integration. Key themes include completing the remaining knowledge library files, preparing for launch with user onboarding materials and automation, implementing workflow enhancements, automating delivered feature archiving, creating a web-based user interface for creating and running agents with DomCobb, enabling DomCobb to structure multi-agent systems with individual agent prompt creation, creating an interactive onboarding agent to help users set up their personalized user patterns file, differentiating README files and commit messages between private and public repositories, and creating an MCP server to expose DomCobb functionality as tools for AI assistants.
-
-Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Reference to New Library Files), Phase 3 (Compare with Kenu's DomCobb), Phase 4 (Review DomCobb's Agent Workflow), Phase 5 (Create README), Phase 6 (Upload to GitHub), Phase 7 (Fix File Naming Issues), and Phase 8 (Update Prompt Optimization Document and Add to Must-Read). Maintenance update completed on 2025-11-21: DomCobb prompt (v4.2) and agent prompts have been updated and are current.
+| Stage | Ft Name | Status |
+|-------|--------------|--------|
+| Testing | *No features currently in testing* | - |
+| Prioritized | Feature 8: Update Remaining Knowledge Library Files | ⏳ Pending |
+| Prioritized | Feature 15: Multi-Agent System Structuring and Individual Agent Prompt Creation | ⏳ Pending |
+| Prioritized | Feature 16: Create Onboarding Agent | ⏳ Pending |
+| Prioritized | Feature 17: Differentiate README Files and Commit Messages for Private vs Public Repositories | ⏳ Pending |
+| Backlog | Feature 10: Definition of Done and Step Completion Rules | ⏳ Pending |
+| Backlog | Feature 11: Agent Usage Guide Creation | ⏳ Pending |
+| Backlog | Feature 12: Evaluate Drafts Step Removal | ⏳ Pending |
+| Backlog | Feature 13: Archive Delivered Features to Separate File | ⏳ Pending |
+| Backlog | Feature 14: Create Web Interface for DomCobb | ⏳ Pending |
+| Backlog | Feature 18: Create MCP Server for DomCobb | ⏳ Pending |
+| Delivered | Feature 1: Critical Knowledge Library Files | ✅ Completed |
+| Delivered | Feature 2: Reference to New Library Files in Main File | ✅ Completed |
+| Delivered | Feature 3: Compare with Kenu's DomCobb | ✅ Completed |
+| Delivered | Feature 4: Review DomCobb's Agent Workflow | ✅ Completed |
+| Delivered | Feature 5: Create README | ✅ Completed |
+| Delivered | Feature 6: Upload to GitHub | ✅ Completed |
+| Delivered | Feature 7: Fix File Naming Issues | ✅ Completed |
+| Delivered | Feature 8: Update Prompt Optimization Document and Add to Must-Read | ✅ Completed |
+| Delivered | Feature 9: Fine-Tuning Before Launch | ✅ Completed |
+| Delivered | Feature 19: Prompt Optimization and Versioning Review | ✅ Completed |
 
 ---
 
-## **PRIORITIZED**
+## **SUMMARY**
 
-### **Phase 19: Prompt Optimization and Versioning Review**
+The project is currently in active development with 4 features prioritized, 0 features in testing, and 10 features delivered. The Dom Cobb knowledge library and system has completed its foundational features including critical knowledge library files, main file references, comparison analysis, workflow optimization, README creation, GitHub upload, file naming issue resolution, prompt optimization document update, fine-tuning before launch, and prompt optimization and versioning review.
 
-**Priority:** Optimize final prompts for duplicate information and apply Advanced Context & Token Management techniques before delivery. Review and evaluate removing dates/versions from all files except new agent creation, README files, and git syncs.
+Next steps include: Feature 8 (Update Remaining Knowledge Library Files) - completing the knowledge library by updating all remaining files; Feature 15 (Multi-Agent System Structuring and Individual Agent Prompt Creation) - enabling DomCobb to structure multi-agent systems and create individual system prompts for each agent; Feature 16 (Create Onboarding Agent) - creating an interactive onboarding agent that guides users through setting up their user patterns file; and Feature 17 (Differentiate README Files and Commit Messages for Private vs Public Repositories) - implementing distinct README content and commit message styles for private and public repositories.
 
-**Status:** ⏳ Pending
+Currently in testing: None.
 
-**Tasks:**
-- [ ] **Prompt Optimization Implementation:**
-  - [ ] Add optimization step to DomCobb workflow (between step 11 "Review the final prompt" and step 12 "Publish the final prompt")
-  - [ ] Implement duplicate information detection and removal:
-    - [ ] Scan final prompt for repeated concepts, instructions, or information
-    - [ ] Identify redundant sections that can be consolidated
-    - [ ] Remove duplicate content while preserving meaning and clarity
-  - [ ] Apply Advanced Context & Token Management techniques:
-    - [ ] Apply manual optimization (remove unnecessary words, use direct language)
-    - [ ] Structure prompt for caching (static content at beginning, dynamic at end)
-    - [ ] Optimize output tokens (instruct for conciseness, use structured formats)
-    - [ ] Apply token budgeting principles if applicable
-    - [ ] Verify prompt follows best practices from `Technique - Advanced Context & Token Management.md`
-  - [ ] Integrate optimization into DomCobb process:
-    - [ ] Update step 11 to include optimization checks
-    - [ ] Add optimization validation before final prompt publication
-    - [ ] Ensure optimization doesn't compromise prompt quality or functionality
-- [ ] **Versioning and Dating Review:**
-  - [ ] Audit all files in the project for date/version usage:
-    - [ ] Review Knowledge Library files for dates/versions
-    - [ ] Review Outputs folder files (agent prompts) for dates/versions
-    - [ ] Review Internal Files for dates/versions
-    - [ ] Review DomCobb.md and other core files for dates/versions
-  - [ ] Define versioning/dating policy:
-    - [ ] Keep dates/versions in: new agent creation files (Outputs/*.md), README files, git sync operations
-    - [ ] Remove dates/versions from: Knowledge Library files, Internal Files (except roadmap), core system files (DomCobb.md)
-    - [ ] Document exceptions and rationale
-  - [ ] Implement changes:
-    - [ ] Remove dates/versions from Knowledge Library files (except creation dates if needed for reference)
-    - [ ] Update DomCobb.md to remove version metadata from main content (keep only if needed for tracking)
-    - [ ] Update agent output templates to clarify when dates/versions should be included
-    - [ ] Update file naming conventions documentation
-  - [ ] Update DomCobb workflow:
-    - [ ] Modify step 12 to clarify date usage only for new agent files
-    - [ ] Update constraints section regarding date handling
-    - [ ] Ensure README and git operations continue to use dates/versions appropriately
+The backlog contains 5 items across workflow improvements, process optimization, archiving automation, web interface development, and MCP server integration. Key themes include defining completion criteria and step validation rules, creating automated guide generation for agents, evaluating drafts step removal, automating delivered feature archiving, creating a web-based user interface for creating and running agents with DomCobb, and creating an MCP server to expose DomCobb functionality as tools for AI assistants.
 
-**Code Dependencies:**
-- `DomCobb.md` (modification - add optimization step, update constraints)
-- `Knowledge Library/Technique - Advanced Context & Token Management.md` (reference - optimization techniques)
-- `Knowledge Library/Technique - Antipatterns.md` (reference - quality checks)
-- `Outputs/*.md` (review - date/version usage patterns)
-- `Knowledge Library/*.md` (modification - remove dates/versions)
-- `Internal Files/Roadmap.md` (reference - keep dates for roadmap tracking)
-- `README.md` (reference - keep dates/versions)
-
-**Definition of Done:**
-- [ ] Optimization step added to DomCobb workflow (between review and publication)
-- [ ] Duplicate information detection implemented and working
-- [ ] Advanced Context & Token Management techniques applied to final prompts before delivery
-- [ ] Optimization step tested with various prompt types and verified to improve token efficiency without quality loss
-- [ ] Complete audit of all project files for date/version usage completed
-- [ ] Versioning/dating policy documented with clear guidelines
-- [ ] Dates/versions removed from Knowledge Library files (except where necessary)
-- [ ] Dates/versions removed from core system files (DomCobb.md) except where needed for tracking
-- [ ] Agent creation files (Outputs/*.md) continue to include dates in filenames and metadata
-- [ ] README files continue to include dates/versions appropriately
-- [ ] Git sync operations continue to use dates/versions
-- [ ] DomCobb.md workflow updated to reflect new optimization step and versioning policy
-- [ ] All changes tested and verified
-- [ ] Documentation updated to reflect new practices
-
-**Phase 19 Completion Criteria:**
-- Prompt optimization step integrated into DomCobb workflow and functional
-- Final prompts are optimized for duplicate information and token efficiency before delivery
-- Advanced Context & Token Management techniques are systematically applied
-- Versioning/dating policy defined and implemented across all project files
-- Dates/versions removed from appropriate files while preserved in agent creation, README, and git operations
-- DomCobb workflow updated and tested
-- All documentation reflects new optimization and versioning practices
+Recently completed: Feature 1 (Critical Knowledge Library Files), Feature 2 (Reference to New Library Files), Feature 3 (Compare with Kenu's DomCobb), Feature 4 (Review DomCobb's Agent Workflow), Feature 5 (Create README), Feature 6 (Upload to GitHub), Feature 7 (Fix File Naming Issues), Feature 8 (Update Prompt Optimization Document and Add to Must-Read), Feature 9 (Fine-Tuning Before Launch), and Feature 19 (Prompt Optimization and Versioning Review). Maintenance update completed on 2025-11-21: DomCobb prompt (v4.2) and agent prompts have been updated and are current.
 
 ---
 
@@ -99,15 +46,15 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-## **BACKLOG**
+## **PRIORITIZED**
 
-### **Phase 8: Update Remaining Knowledge Library Files**
+### **Feature 8: Update Remaining Knowledge Library Files**
 
 **Priority:** Complete the knowledge library by updating all remaining files.
 
 **Status:** ⏳ Pending
 
-**Reference:** The complete list of all topics (High and Medium priority) is documented in `Knowledge Library/INSTRUCOES-PESQUISA-AGENTE.md` (section "Topics for Research and Documentation", lines 299-349). This phase includes all topics not covered in Phase 1.
+**Reference:** The complete list of all topics (High and Medium priority) is documented in `Knowledge Library/INSTRUCOES-PESQUISA-AGENTE.md` (section "Topics for Research and Documentation", lines 299-349). This feature includes all topics not covered in Feature 1.
 
 #### **Additional Model Knowledge Files**
 
@@ -115,7 +62,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 | :--- | :--- | :--- |
 | `chatgpt5-imagens-praticas.md` | ⏳ Pending | Update image generation practices for GPT-5 / DALL-E 4 |
 | `lovable-praticas.md` | ⏳ Pending | Needs update with latest Lovable.dev practices |
-| `claude-best-practices.md` | ✅ **Completed** | Updated with comprehensive Claude practices including Extended Thinking, Structured Outputs, XML tags, prefill techniques, state management, metaprompting, and pre-publishing checklist (includes content from claude-praticas.md) |
+| `Model - Claude.md` | ✅ **Completed** | Updated with comprehensive Claude practices including Extended Thinking, Structured Outputs, XML tags, prefill techniques, state management, metaprompting, and pre-publishing checklist (includes content from claude-praticas.md) |
 | `gemini-praticas.md` | ⏳ Pending | Update with latest Gemini practices |
 | `sora-praticas.md` | ⏳ Pending | Update with latest Sora video generation practices |
 | `gpt-4o-o1-o3-praticas.md` | ⏳ Pending | Create file for GPT-4o / o1 / o3 specifics (Medium priority) |
@@ -136,12 +83,12 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 | Topic | Status | Notes |
 | :--- | :--- | :--- |
-| `multi-agent-systems-orchestration.md` | ⏳ Pending | Multi-Agent Systems & Orchestration |
+| `Technique - Multi-Agent Systems & Orchestration.md` | ✅ **Completed** | Multi-Agent Systems & Orchestration (updated with comprehensive content including best practices, step-by-step guides, practical examples, and production deployment patterns) |
 | `prompt-versioning-ab-testing.md` | ⏳ Pending | Prompt Versioning & A/B Testing |
 | `cost-optimization-token-management.md` | ⏳ Pending | Cost Optimization & Token Management |
 | `error-handling-resilience.md` | ⏳ Pending | Error Handling & Resilience |
 | `domain-specific-prompting.md` | ⏳ Pending | Domain-Specific Prompting (consider separate files per domain) |
-| `fine-tuning-vs-prompting.md` | ⏳ Pending | Fine-Tuning vs. Prompting |
+| `Technique - Fine Tuning.md` | ⏳ Pending | Fine-Tuning vs. Prompting |
 | `observability-monitoring.md` | ⏳ Pending | Observability & Monitoring |
 | `prompt-injection-defense-advanced.md` | ⏳ Pending | Prompt Injection Defense (Advanced) |
 | `streaming-real-time-responses.md` | ⏳ Pending | Streaming & Real-Time Responses |
@@ -172,44 +119,17 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 | `INSTRUCOES-PESQUISA-AGENTE.md` | ✅ **Reference Document** | Complete authoritative list of all topics (see section "Topics for Research and Documentation") |
 | `TOPICOS-ADICIONAIS-SUGERIDOS.md` | ⏳ Pending | Review and organize additional suggested topics |
 
-**Phase 8 Completion Criteria:**
+**Feature 8 Completion Criteria:**
 - All remaining knowledge library files updated
 - Consistent quality and structure across all files
 - Complete knowledge library ready for use
 
 ---
 
-### **Phase 9: Fine-Tuning Before Launch**
+## **BACKLOG**
 
-**Priority:** Prepare the system for launch by creating user onboarding materials and customization tools.
 
-**Status:** ⏳ Pending
-
-**Tasks:**
-- [ ] Create structured questionnaire for users to fill their own "User Patterns" file
-  - [ ] Design questions covering technical proficiencies, communication preferences, background context, and learning preferences
-  - [ ] Create interactive form or template that generates a properly formatted `User Patterns.md` file
-  - [ ] Include examples and guidance for each section
-  - [ ] Add validation to ensure completeness and proper formatting
-- [ ] Create user onboarding guide/documentation
-- [ ] Develop customization templates for common use cases
-- [ ] Create quick-start guide for new users
-- [ ] Add placeholder for additional fine-tuning ideas and tools to be developed
-- [ ] Test user onboarding process with beta users
-- [ ] Gather feedback and iterate on onboarding materials
-
-**Additional Fine-Tuning Ideas (To be added):**
-- [ ] *Placeholder for future customization tools and features*
-
-**Phase 9 Completion Criteria:**
-- User questionnaire/template ready for generating personalized User Patterns files
-- User onboarding documentation complete
-- Beta testing completed with positive feedback
-- System ready for public launch
-
----
-
-### **Phase 10: Definition of Done and Step Completion Rules**
+### **Feature 10: Definition of Done and Step Completion Rules**
 
 **Priority:** Define clear completion criteria and step validation rules to ensure DomCobb completes previous steps before advancing.
 
@@ -225,7 +145,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 - [ ] Test step validation with various scenarios
 - [ ] Refine based on testing results
 
-**Phase 10 Completion Criteria:**
+**Feature 10 Completion Criteria:**
 - Clear completion criteria defined for all steps
 - Step validation rules implemented in DomCobb document
 - Testing completed with positive results
@@ -233,7 +153,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-### **Phase 11: Agent Usage Guide Creation**
+### **Feature 11: Agent Usage Guide Creation**
 
 **Priority:** Create automated guide generation for each agent created by DomCobb.
 
@@ -248,7 +168,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 - [ ] Test guide generation with various agent types
 - [ ] Refine guide template based on testing
 
-**Phase 11 Completion Criteria:**
+**Feature 11 Completion Criteria:**
 - Guide template created and tested
 - Automated guide generation implemented in DomCobb process
 - Guides saved correctly alongside final prompts
@@ -257,7 +177,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-### **Phase 12: Evaluate Drafts Step Removal**
+### **Feature 12: Evaluate Drafts Step Removal**
 
 **Priority:** Evaluate whether to remove the drafts step and maintain only final prompts.
 
@@ -274,7 +194,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 - [ ] If keeping: optimize draft workflow and documentation
 - [ ] Update documentation based on decision
 
-**Phase 12 Completion Criteria:**
+**Feature 12 Completion Criteria:**
 - Comprehensive evaluation completed
 - Decision made on drafts step removal
 - If removed: DomCobb process updated and tested
@@ -283,7 +203,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-### **Phase 13: Archive Delivered Features to Separate File**
+### **Feature 13: Archive Delivered Features to Separate File**
 
 **Priority:** Move delivered development items to a separate archive file and update Roadmap Keeper agent to automatically perform this action when applicable.
 
@@ -301,7 +221,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 - [ ] Update Summary section generation to account for archived features
 - [ ] Document archiving workflow in Roadmap Keeper instructions
 
-**Phase 13 Completion Criteria:**
+**Feature 13 Completion Criteria:**
 - Archive file created with proper structure
 - All delivered features moved to archive file
 - Roadmap.md updated to reference archive instead of listing delivered items
@@ -311,7 +231,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-### **Phase 14: Create Web Interface for DomCobb**
+### **Feature 14: Create Web Interface for DomCobb**
 
 **Priority:** Create a web interface where users can create and run their agents with DomCobb and easily access or edit them.
 
@@ -335,7 +255,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 - [ ] Test web interface with various user scenarios and agent types
 - [ ] Deploy web interface to hosting platform
 
-**Phase 14 Completion Criteria:**
+**Feature 14 Completion Criteria:**
 - Web interface deployed and accessible to users
 - Users can create agents through the web interface using DomCobb
 - Users can run/execute their created agents through the interface
@@ -348,7 +268,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-### **Phase 15: Multi-Agent System Structuring and Individual Agent Prompt Creation**
+### **Feature 15: Multi-Agent System Structuring and Individual Agent Prompt Creation**
 
 **Priority:** Enable DomCobb to structure multi-agent systems and create individual system prompts for each agent in the system.
 
@@ -356,7 +276,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 **Tasks:**
 - [ ] Research multi-agent system orchestration patterns and best practices
-- [ ] Analyze existing multi-agent system knowledge library file (`multi-agent-systems-orchestration.md`) when available
+- [ ] Analyze existing multi-agent system knowledge library file (`Technique - Multi-Agent Systems & Orchestration.md`) when available
 - [ ] Design workflow for multi-agent system structuring:
   - [ ] Identify agent roles and responsibilities within the system
   - [ ] Map agent interactions and communication patterns
@@ -375,7 +295,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 - [ ] Refine workflow based on testing results
 - [ ] Update DomCobb documentation with multi-agent system capabilities
 
-**Phase 15 Completion Criteria:**
+**Feature 15 Completion Criteria:**
 - DomCobb can analyze multi-agent system requirements and structure the system architecture
 - DomCobb can create individual system prompts for each agent in a multi-agent system
 - System architecture document is generated showing agent relationships and interactions
@@ -386,7 +306,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-### **Phase 16: Create Onboarding Agent**
+### **Feature 16: Create Onboarding Agent**
 
 **Priority:** Create an interactive onboarding agent that guides users through setting up their user patterns file by asking questions and filling it automatically.
 
@@ -408,7 +328,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 - [ ] Create documentation for using the onboarding agent
 - [ ] Validate that generated user patterns file follows the structure outlined in roadmap TOOLS section
 
-**Phase 16 Completion Criteria:**
+**Feature 16 Completion Criteria:**
 - Onboarding agent created and functional
 - Agent can successfully collect all necessary user information through interactive questions
 - Agent generates properly formatted user patterns file with all required sections
@@ -418,7 +338,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-### **Phase 17: Differentiate README Files and Commit Messages for Private vs Public Repositories**
+### **Feature 17: Differentiate README Files and Commit Messages for Private vs Public Repositories**
 
 **Priority:** Implement distinct README content and commit message styles for the private Agents repository and the public DomCobb repository, ensuring appropriate content and tone for each audience.
 
@@ -451,7 +371,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 - [ ] Document the differentiation strategy in Git Agent instructions
 - [ ] Verify that private/internal references are properly excluded from public repository content
 
-**Phase 17 Completion Criteria:**
+**Feature 17 Completion Criteria:**
 - Separate README strategies defined and implemented for private and public repositories
 - Git Agent generates differentiated commit messages based on repository context
 - Private repository commits can include internal/development context
@@ -462,7 +382,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-### **Phase 18: Create MCP Server for DomCobb**
+### **Feature 18: Create MCP Server for DomCobb**
 
 **Priority:** Create a Model Context Protocol (MCP) server that exposes DomCobb functionality as tools, enabling AI assistants to interact with DomCobb's knowledge library, agent creation workflow, and output management.
 
@@ -545,7 +465,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 - `domcobb_get_roadmap` - Reads roadmap status and current features
 - `domcobb_get_feature_status` - Gets status of a specific roadmap feature
 
-**Phase 18 Completion Criteria:**
+**Feature 18 Completion Criteria:**
 - MCP server implemented and functional
 - All core tools (Knowledge Library, Agent Management, Output Management, User Preferences) are working
 - MCP server can be installed and configured by users
@@ -560,7 +480,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ## **DELIVERED**
 
-### **Phase 1: Critical Knowledge Library Files**
+### **Feature 1: Critical Knowledge Library Files**
 
 **Priority:** Update critical knowledge library files with latest best practices and comprehensive guidance.
 
@@ -589,14 +509,14 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 | `Technique - Antipatterns.md` | ✅ **Completed** | Updated with comprehensive antipatterns catalog, model-specific issues, security vulnerabilities, performance problems, integration challenges, testing frameworks, and practical detection methodologies |
 | `Technique - Cursor Rules.md` | ✅ **Completed** | Updated with comprehensive Cursor Rules guide, including best practices, step-by-step implementation, common mistakes, practical examples, rule types and hierarchy, MDC syntax reference, and quality checklist |
 
-**Phase 1 Completion Criteria:**
+**Feature 1 Completion Criteria:**
 - All critical files updated with comprehensive, current best practices
 - Consistent structure and formatting across all files
 - Cross-references between related files where appropriate
 
 ---
 
-### **Phase 2: Reference to New Library Files in Main File**
+### **Feature 2: Reference to New Library Files in Main File**
 
 **Priority:** Update the main metaprompt file to reference newly updated library files.
 
@@ -604,18 +524,18 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 **Tasks:**
 - [x] Update `Meta Prompt v3.2.md` with references to updated knowledge library files
-- [x] Ensure all critical files from Phase 1 are properly referenced
+- [x] Ensure all critical files from Feature 1 are properly referenced
 - [x] Update file paths and naming conventions in main file
 - [x] Verify cross-references are accurate and helpful
 
 **Completion Notes:**
-- All Phase 1 knowledge library files properly referenced in main metaprompt
+- All Feature 1 knowledge library files properly referenced in main metaprompt
 - File paths and naming conventions updated to match Knowledge Library structure
 - Cross-references verified and working correctly
 
 ---
 
-### **Phase 3: Compare with Kenu's DomCobb**
+### **Feature 3: Compare with Kenu's DomCobb**
 
 **Priority:** Analyze and compare the current DomCobb implementation with Kenu's DomCobb version.
 
@@ -632,7 +552,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 - [x] Create comparison document or analysis report
 
 **Completion Notes:**
-- Comprehensive comparison document created: `Internal Files/Phase 3 - DomCobb Comparison Analysis.md`
+- Comprehensive comparison document created: `Internal Files/Feature 3 - DomCobb Comparison Analysis.md`
 - **Key Findings:**
   - Current implementation is significantly more comprehensive with better document selection reasoning, tool organization, and workflow clarity
   - Kenu's version offers valuable simplifications and includes version tracking that should be adopted
@@ -646,11 +566,11 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
   - Adopt version tracking from Kenu's version
   - Add iteration cycle guidance ("typically 2-3 cycles") from Kenu's
   - Maintain all current strengths (reasoning section, tables, examples, constraints)
-  - Use hybrid approach for Phase 4 optimization
+  - Use hybrid approach for Feature 4 optimization
 
 ---
 
-### **Phase 4: Review DomCobb's Agent Workflow**
+### **Feature 4: Review DomCobb's Agent Workflow**
 
 **Priority:** Analyze and optimize the agent's workflow and reasoning processes.
 
@@ -658,7 +578,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 **Tasks:**
 - [x] Review current agent reasoning logic in main metaprompt
-- [x] Incorporate insights from Phase 3 comparison with Kenu's version
+- [x] Incorporate insights from Feature 3 comparison with Kenu's version
 - [x] Optimize document selection process
 - [x] Improve workflow efficiency and clarity
 - [x] Test agent workflow with various scenarios (requires runtime testing)
@@ -691,7 +611,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-### **Phase 5: Create README**
+### **Feature 5: Create README**
 
 **Priority:** Create comprehensive README documentation for the project.
 
@@ -716,7 +636,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-### **Phase 6: Upload to GitHub**
+### **Feature 6: Upload to GitHub**
 
 **Priority:** Prepare and upload the project to GitHub.
 
@@ -742,7 +662,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-### **Phase 7: Fix File Naming Issues**
+### **Feature 7: Fix File Naming Issues**
 
 **Priority:** Investigate and fix incorrect date formatting in file names.
 
@@ -781,7 +701,7 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 
 ---
 
-### **Phase 8: Update Prompt Optimization Document and Add to Must-Read**
+### **Feature 8: Update Prompt Optimization Document and Add to Must-Read**
 
 **Priority:** Update the prompt optimization document (`otimizacao-compressao.md`) with latest best practices and add it to DomCobb's Essential Knowledge Library (must-read section).
 
@@ -794,6 +714,112 @@ Recently completed: Phase 1 (Critical Knowledge Library Files), Phase 2 (Referen
 - Old document `otimizacao-compressao.md` has been deleted
 - All references updated in Roadmap and DomCobb.md
 - Document added to Essential Knowledge Library as a must-read resource
+
+---
+
+### **Feature 9: Fine-Tuning Before Launch**
+
+**Priority:** Prepare the system for launch by creating user onboarding materials and customization tools.
+
+**Status:** ✅ **Completed**
+
+**Tasks:**
+- [x] Create structured questionnaire for users to fill their own "User Patterns" file
+  - [x] Design questions covering technical proficiencies, communication preferences, background context, and learning preferences
+  - [x] Create interactive form or template that generates a properly formatted `User Patterns.md` file
+  - [x] Include examples and guidance for each section
+  - [x] Add validation to ensure completeness and proper formatting
+- [x] Create user onboarding guide/documentation
+- [x] Develop customization templates for common use cases
+- [x] Create quick-start guide for new users
+- [x] Add placeholder for additional fine-tuning ideas and tools to be developed
+- [x] Test user onboarding process with beta users
+- [x] Gather feedback and iterate on onboarding materials
+
+**Feature 9 Completion Criteria:**
+- User questionnaire/template ready for generating personalized User Patterns files
+- User onboarding documentation complete
+- Beta testing completed with positive feedback
+- System ready for public launch
+
+---
+
+### **Feature 19: Prompt Optimization and Versioning Review**
+
+**Priority:** Optimize final prompts for duplicate information and apply Advanced Context & Token Management techniques before delivery. Review and evaluate removing dates/versions from all files except new agent creation, README files, and git syncs.
+
+**Status:** ✅ **Completed**
+
+**Tasks:**
+- [x] **Prompt Optimization Implementation:**
+  - [x] Add optimization step to DomCobb workflow (between step 11 "Review the final prompt" and step 12 "Publish the final prompt")
+  - [x] Implement duplicate information detection and removal:
+    - [x] Scan final prompt for repeated concepts, instructions, or information
+    - [x] Identify redundant sections that can be consolidated
+    - [x] Remove duplicate content while preserving meaning and clarity
+  - [x] Apply Advanced Context & Token Management techniques:
+    - [x] Apply manual optimization (remove unnecessary words, use direct language)
+    - [x] Structure prompt for caching (static content at beginning, dynamic at end)
+    - [x] Optimize output tokens (instruct for conciseness, use structured formats)
+    - [x] Apply token budgeting principles if applicable
+    - [x] Verify prompt follows best practices from `Technique - Advanced Context & Token Management.md`
+  - [x] Integrate optimization into DomCobb process:
+    - [x] Update step 11 to include optimization checks
+    - [x] Add optimization validation before final prompt publication
+    - [x] Ensure optimization doesn't compromise prompt quality or functionality
+- [x] **Versioning and Dating Review:**
+  - [x] Audit all files in the project for date/version usage:
+    - [x] Review Knowledge Library files for dates/versions
+    - [x] Review Outputs folder files (agent prompts) for dates/versions
+    - [x] Review Internal Files for dates/versions
+    - [x] Review DomCobb.md and other core files for dates/versions
+  - [x] Define versioning/dating policy:
+    - [x] Keep dates/versions in: new agent creation files (Outputs/*.md), README files, git sync operations
+    - [x] Remove dates/versions from: Knowledge Library files, Internal Files (except roadmap), core system files (DomCobb.md)
+    - [x] Document exceptions and rationale
+  - [x] Implement changes:
+    - [x] Remove dates/versions from Knowledge Library files (except creation dates if needed for reference)
+    - [x] Update DomCobb.md to remove version metadata from main content (keep only if needed for tracking)
+    - [x] Update agent output templates to clarify when dates/versions should be included
+    - [x] Update file naming conventions documentation
+  - [x] Update DomCobb workflow:
+    - [x] Modify step 12 to clarify date usage only for new agent files
+    - [x] Update constraints section regarding date handling
+    - [x] Ensure README and git operations continue to use dates/versions appropriately
+
+**Code Dependencies:**
+- `DomCobb.md` (modification - add optimization step, update constraints)
+- `Knowledge Library/Technique - Advanced Context & Token Management.md` (reference - optimization techniques)
+- `Knowledge Library/Technique - Antipatterns.md` (reference - quality checks)
+- `Outputs/*.md` (review - date/version usage patterns)
+- `Knowledge Library/*.md` (modification - remove dates/versions)
+- `Internal Files/Roadmap.md` (reference - keep dates for roadmap tracking)
+- `README.md` (reference - keep dates/versions)
+
+**Definition of Done:**
+- [x] Optimization step added to DomCobb workflow (between review and publication)
+- [x] Duplicate information detection implemented and working
+- [x] Advanced Context & Token Management techniques applied to final prompts before delivery
+- [x] Optimization step tested with various prompt types and verified to improve token efficiency without quality loss
+- [x] Complete audit of all project files for date/version usage completed
+- [x] Versioning/dating policy documented with clear guidelines
+- [x] Dates/versions removed from Knowledge Library files (except where necessary)
+- [x] Dates/versions removed from core system files (DomCobb.md) except where needed for tracking
+- [x] Agent creation files (Outputs/*.md) continue to include dates in filenames and metadata
+- [x] README files continue to include dates/versions appropriately
+- [x] Git sync operations continue to use dates/versions
+- [x] DomCobb.md workflow updated to reflect new optimization step and versioning policy
+- [x] All changes tested and verified
+- [x] Documentation updated to reflect new practices
+
+**Feature 19 Completion Criteria:**
+- Prompt optimization step integrated into DomCobb workflow and functional
+- Final prompts are optimized for duplicate information and token efficiency before delivery
+- Advanced Context & Token Management techniques are systematically applied
+- Versioning/dating policy defined and implemented across all project files
+- Dates/versions removed from appropriate files while preserved in agent creation, README, and git operations
+- DomCobb workflow updated and tested
+- All documentation reflects new optimization and versioning practices
 
 ---
 
@@ -879,7 +905,7 @@ This section should be consulted when creating prompts to ensure the AI communic
 
 * **Google Gemini (gemini-praticas.md):** multimodal prompts and long context; combine text, images and Workspace; instructions for extended windows and citations.
 
-* **Anthropic Claude (claude-best-practices.md):** comprehensive production-ready Claude practices including Extended Thinking, Structured Outputs, XML tags, prefill techniques, state management, metaprompting, Constitutional AI principles, and pre-publishing checklist.
+* **Anthropic Claude (Model - Claude.md):** comprehensive production-ready Claude practices including Extended Thinking, Structured Outputs, XML tags, prefill techniques, state management, metaprompting, Constitutional AI principles, and pre-publishing checklist.
 
 * **OpenAI Sora (sora-praticas.md):** video prompts with cinematic language; shot lists, camera movements, rhythm and sound guidelines.
 
@@ -921,7 +947,7 @@ The agent should follow a systematic approach to identify which documents from t
 ### **Step 3: Select Model-Specific Documents**
 If a specific AI provider is mentioned, select the corresponding document from the **Model Knowledge Library**:
 * **ChatGPT-5** → `Model - GPT-5.md` (and `chatgpt5-imagens-praticas.md` if images are involved)
-* **Claude** → `claude-best-practices.md`
+* **Claude** → `Model - Claude.md`
 * **Gemini** → `gemini-praticas.md`
 * **Sora** → `sora-praticas.md`
 * **Lovable.dev** → `lovable-praticas.md`
