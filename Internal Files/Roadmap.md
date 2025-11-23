@@ -2,11 +2,11 @@
 
 | Stage | Ft Name | Status |
 |-------|--------------|--------|
-| Testing | *No features currently in testing* | - |
+| Testing | Feature 17: Differentiate README Files and Commit Messages for Private vs Public Repositories | ⏳ Testing |
 | Prioritized | Feature 8: Update Remaining Knowledge Library Files | ⏳ Pending |
 | Prioritized | Feature 15: Multi-Agent System Structuring and Individual Agent Prompt Creation | ⏳ Pending |
+| Prioritized | Feature 20: Revamp User Preferences File Structure to Match .cursorrules Power | ⏳ Pending |
 | Prioritized | Feature 16: Create Onboarding Agent | ⏳ Pending |
-| Prioritized | Feature 17: Differentiate README Files and Commit Messages for Private vs Public Repositories | ⏳ Pending |
 | Backlog | Feature 10: Definition of Done and Step Completion Rules | ⏳ Pending |
 | Backlog | Feature 11: Agent Usage Guide Creation | ⏳ Pending |
 | Backlog | Feature 12: Evaluate Drafts Step Removal | ⏳ Pending |
@@ -28,11 +28,11 @@
 
 ## **SUMMARY**
 
-The project is currently in active development with 4 features prioritized, 0 features in testing, and 10 features delivered. The Dom Cobb knowledge library and system has completed its foundational features including critical knowledge library files, main file references, comparison analysis, workflow optimization, README creation, GitHub upload, file naming issue resolution, prompt optimization document update, fine-tuning before launch, and prompt optimization and versioning review.
+The project is currently in active development with 4 features prioritized, 1 feature in testing, and 10 features delivered. The Dom Cobb knowledge library and system has completed its foundational features including critical knowledge library files, main file references, comparison analysis, workflow optimization, README creation, GitHub upload, file naming issue resolution, prompt optimization document update, fine-tuning before launch, and prompt optimization and versioning review.
 
-Next steps include: Feature 8 (Update Remaining Knowledge Library Files) - completing the knowledge library by updating all remaining files; Feature 15 (Multi-Agent System Structuring and Individual Agent Prompt Creation) - enabling DomCobb to structure multi-agent systems and create individual system prompts for each agent; Feature 16 (Create Onboarding Agent) - creating an interactive onboarding agent that guides users through setting up their user patterns file; and Feature 17 (Differentiate README Files and Commit Messages for Private vs Public Repositories) - implementing distinct README content and commit message styles for private and public repositories.
+Next steps include: Feature 8 (Update Remaining Knowledge Library Files) - completing the knowledge library by updating all remaining files; Feature 15 (Multi-Agent System Structuring and Individual Agent Prompt Creation) - enabling DomCobb to structure multi-agent systems and create individual system prompts for each agent; Feature 20 (Revamp User Preferences File Structure to Match .cursorrules Power) - redesigning User Preferences with hierarchical organization and metadata support to match .cursorrules power; and Feature 16 (Create Onboarding Agent) - creating an interactive onboarding agent that guides users through setting up their user patterns file (depends on Feature 20 completion).
 
-Currently in testing: None.
+Currently in testing: Feature 17 (Differentiate README Files and Commit Messages for Private vs Public Repositories) - implementing distinct README content and commit message styles for private and public repositories. Implementation complete, testing phase started on 2025-11-22.
 
 The backlog contains 5 items across workflow improvements, process optimization, archiving automation, web interface development, and MCP server integration. Key themes include defining completion criteria and step validation rules, creating automated guide generation for agents, evaluating drafts step removal, automating delivered feature archiving, creating a web-based user interface for creating and running agents with DomCobb, and creating an MCP server to expose DomCobb functionality as tools for AI assistants.
 
@@ -42,7 +42,55 @@ Recently completed: Feature 1 (Critical Knowledge Library Files), Feature 2 (Ref
 
 ## **TESTING**
 
-*No features currently in testing.*
+### **Feature 17: Differentiate README Files and Commit Messages for Private vs Public Repositories**
+
+**Priority:** Implement distinct README content and commit message styles for the private Agents repository and the public DomCobb repository, ensuring appropriate content and tone for each audience.
+
+**Status:** ⏳ Testing
+
+**Testing Start Date:** 2025-11-22
+
+**Tasks:**
+- [x] Analyze current README.md content and identify what should differ between repositories
+- [x] Define content strategy for private repository README:
+  - [x] Include internal development context and processes
+  - [x] Reference private folders and internal workflows
+  - [x] Include notes about personal development practices
+  - [x] Add context specific to private repository structure
+- [x] Define content strategy for public repository README:
+  - [x] Focus on public-facing documentation
+  - [x] Remove internal/private references
+  - [x] Emphasize user-facing features and setup instructions
+  - [x] Ensure professional tone suitable for open-source audience
+- [x] Update Git Agent to differentiate commit message styles:
+  - [x] Private repository commits: Allow more detailed internal context, personal notes, or development-specific information
+  - [x] Public repository commits: Use cleaner, more professional messages suitable for public visibility
+  - [x] Create commit message templates for each repository type
+- [x] Implement dual README strategy:
+  - [x] Create/maintain separate README.md files for each repository
+  - [x] Ensure private repository README includes information about DomCobb sync process
+  - [x] Ensure public repository README is polished and user-friendly
+  - [x] Update sync process to handle README differences appropriately
+- [x] Update Git Agent workflow to generate appropriate commit messages based on target repository
+- [x] Test commit message generation for both repository types
+- [x] Test README sync process to ensure correct files are used in each repository
+- [x] Document the differentiation strategy in Git Agent instructions
+- [x] Verify that private/internal references are properly excluded from public repository content
+
+**Feature 17 Completion Criteria:**
+- Separate README strategies defined and implemented for private and public repositories
+- Git Agent generates differentiated commit messages based on repository context
+- Private repository commits can include internal/development context
+- Public repository commits are professional and suitable for public visibility
+- README files are appropriately tailored for their respective audiences
+- Sync process correctly handles different README files for each repository
+- Documentation updated with differentiation strategy and guidelines
+
+**Notes:**
+- Implementation complete: Dual README strategy implemented in Git Agent with automatic public README update before sync
+- Public README located at `Internal Files/Public DomCobb Readme/README.md` is synced to public repo as root `README.md`
+- Private README at root `README.md` remains in private repository only
+- Sync process automatically removes private-only references from public README before sync
 
 ---
 
@@ -306,11 +354,98 @@ Recently completed: Feature 1 (Critical Knowledge Library Files), Feature 2 (Ref
 
 ---
 
+### **Feature 20: Revamp User Preferences File Structure to Match .cursorrules Power**
+
+**Priority:** Redesign and restructure the User Preferences file to match the power and flexibility of .cursorrules files, enabling hierarchical organization, metadata support, conditional activation, and more sophisticated configuration before implementing the Onboarding Agent.
+
+**Status:** ⏳ Pending
+
+**Tasks:**
+- [ ] Research .cursorrules file structure, MDC syntax, and metadata capabilities
+- [ ] Analyze current User Preferences file structure and identify limitations
+- [ ] Design new hierarchical User Preferences structure:
+  - [ ] Define metadata format (similar to MDC frontmatter) for conditional activation
+  - [ ] Create section hierarchy (Global → Context-Specific → Task-Specific)
+  - [ ] Design activation rules (when to apply which sections)
+  - [ ] Define inheritance model (how global preferences cascade to specific contexts)
+- [ ] Design enhanced configuration capabilities:
+  - [ ] Support for context-specific preferences (e.g., research vs. code generation vs. documentation)
+  - [ ] Conditional rules based on task type or AI provider
+  - [ ] Preference overrides for specific scenarios
+  - [ ] Template system for common preference patterns
+- [ ] Create migration strategy from current User Preferences format:
+  - [ ] Map existing sections to new structure
+  - [ ] Define backward compatibility approach
+  - [ ] Create migration guide/documentation
+- [ ] Update DomCobb workflow to use new User Preferences structure:
+  - [ ] Modify Step 3 (Identify user parameters) to handle hierarchical structure
+  - [ ] Update document selection logic to respect conditional activation
+  - [ ] Ensure backward compatibility during transition
+- [ ] Create new User Preferences template with enhanced structure:
+  - [ ] Include metadata section (activation rules, context filters)
+  - [ ] Organize into hierarchical sections (Global, Research, Communication, Output, Proficiency, Operations, Method)
+  - [ ] Add context-specific subsections (e.g., Research → Web Research, Research → Code Analysis)
+  - [ ] Include examples and usage guidelines
+- [ ] Update Knowledge Library documentation:
+  - [ ] Update references to User Preferences in DomCobb.md
+  - [ ] Update REASONING section examples
+  - [ ] Update TOOLS section description
+- [ ] Test new structure with various DomCobb workflows:
+  - [ ] Test with simple prompt requests
+  - [ ] Test with complex agent creation
+  - [ ] Test with multi-agent system requests
+  - [ ] Verify conditional activation works correctly
+- [ ] Document new User Preferences structure:
+  - [ ] Create comprehensive guide for users
+  - [ ] Document metadata syntax and activation rules
+  - [ ] Provide migration examples
+  - [ ] Include best practices for organizing preferences
+
+**Code Dependencies:**
+- `Knowledge Library/User Preferences.md` (modification - restructure to new format)
+- `DomCobb.md` (modification - update Step 3 and REASONING section to handle new structure)
+- `Knowledge Library/Technique - Cursor Rules.md` (reference - for .cursorrules structure patterns)
+- `Outputs/Roadmap Keeper Agent.md` (reference - may need updates if it references User Preferences)
+- `Outputs/Readme Keeper Agent.md` (reference - may need updates if it references User Preferences)
+
+**Definition of Done:**
+- [ ] New User Preferences structure designed with hierarchical organization and metadata support
+- [ ] Metadata format defined (similar to MDC syntax) with activation rules and context filters
+- [ ] Current User Preferences content migrated to new structure maintaining all existing functionality
+- [ ] DomCobb.md updated to handle new User Preferences structure in Step 3 and REASONING section
+- [ ] Document selection logic updated to respect conditional activation rules
+- [ ] New User Preferences template created with comprehensive examples and guidelines
+- [ ] Knowledge Library documentation updated with new structure references
+- [ ] Testing completed: new structure works with simple prompts, complex agents, and multi-agent systems
+- [ ] Conditional activation verified: preferences apply correctly based on context and task type
+- [ ] Migration guide created for users transitioning from old to new format
+- [ ] Backward compatibility maintained during transition period
+- [ ] All DomCobb workflow steps correctly use new User Preferences structure
+
+**Feature 20 Completion Criteria:**
+- User Preferences file structure matches .cursorrules power and flexibility
+- Hierarchical organization enables context-specific and task-specific preferences
+- Metadata support allows conditional activation based on context, task type, or AI provider
+- DomCobb workflow fully integrated with new structure
+- Migration path available for existing users
+- Documentation complete with examples and best practices
+- Testing validates functionality across all DomCobb use cases
+
+**Notes:**
+- This feature must be completed before Feature 16 (Create Onboarding Agent) as the onboarding agent will generate User Preferences files using the new structure
+- The new structure should maintain backward compatibility or provide clear migration path
+- Consider adopting MDC-like syntax for metadata to align with Cursor Rules patterns
+- The enhanced structure should enable more sophisticated personalization while remaining easy to use
+
+---
+
 ### **Feature 16: Create Onboarding Agent**
 
 **Priority:** Create an interactive onboarding agent that guides users through setting up their user patterns file by asking questions and filling it automatically.
 
 **Status:** ⏳ Pending
+
+**Dependency:** This feature depends on Feature 20 (Revamp User Preferences File Structure) completion, as the onboarding agent will generate User Preferences files using the new enhanced structure.
 
 **Tasks:**
 - [ ] Design onboarding agent prompt that asks structured questions to collect user information
@@ -338,49 +473,6 @@ Recently completed: Feature 1 (Critical Knowledge Library Files), Feature 2 (Ref
 
 ---
 
-### **Feature 17: Differentiate README Files and Commit Messages for Private vs Public Repositories**
-
-**Priority:** Implement distinct README content and commit message styles for the private Agents repository and the public DomCobb repository, ensuring appropriate content and tone for each audience.
-
-**Status:** ⏳ Pending
-
-**Tasks:**
-- [ ] Analyze current README.md content and identify what should differ between repositories
-- [ ] Define content strategy for private repository README:
-  - [ ] Include internal development context and processes
-  - [ ] Reference private folders and internal workflows
-  - [ ] Include notes about personal development practices
-  - [ ] Add context specific to private repository structure
-- [ ] Define content strategy for public repository README:
-  - [ ] Focus on public-facing documentation
-  - [ ] Remove internal/private references
-  - [ ] Emphasize user-facing features and setup instructions
-  - [ ] Ensure professional tone suitable for open-source audience
-- [ ] Update Git Agent to differentiate commit message styles:
-  - [ ] Private repository commits: Allow more detailed internal context, personal notes, or development-specific information
-  - [ ] Public repository commits: Use cleaner, more professional messages suitable for public visibility
-  - [ ] Create commit message templates for each repository type
-- [ ] Implement dual README strategy:
-  - [ ] Create/maintain separate README.md files for each repository
-  - [ ] Ensure private repository README includes information about DomCobb sync process
-  - [ ] Ensure public repository README is polished and user-friendly
-  - [ ] Update sync process to handle README differences appropriately
-- [ ] Update Git Agent workflow to generate appropriate commit messages based on target repository
-- [ ] Test commit message generation for both repository types
-- [ ] Test README sync process to ensure correct files are used in each repository
-- [ ] Document the differentiation strategy in Git Agent instructions
-- [ ] Verify that private/internal references are properly excluded from public repository content
-
-**Feature 17 Completion Criteria:**
-- Separate README strategies defined and implemented for private and public repositories
-- Git Agent generates differentiated commit messages based on repository context
-- Private repository commits can include internal/development context
-- Public repository commits are professional and suitable for public visibility
-- README files are appropriately tailored for their respective audiences
-- Sync process correctly handles different README files for each repository
-- Documentation updated with differentiation strategy and guidelines
-
----
 
 ### **Feature 18: Create MCP Server for DomCobb**
 
