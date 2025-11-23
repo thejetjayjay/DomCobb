@@ -113,7 +113,7 @@ DomCobb/
 │   │   ├── Model - GPT-5.md
 │   │   ├── Model - Cursor AI.md
 │   │   ├── Model - Manus AI.md
-│   │   ├── claude-best-practices.md
+│   │   ├── Model - Claude.md
 │   │   ├── gemini-praticas.md
 │   │   ├── sora-praticas.md
 │   │   ├── chatgpt5-imagens-praticas.md
@@ -180,7 +180,7 @@ Drafts are saved to `Outputs/drafts/draft-agent-name-yyyy-mm-dd.md` during itera
 |:------------|:---------------|:-------------|
 | **ChatGPT-5** | `Model - GPT-5.md` | Tool calling, reasoning_effort, multi-step flows |
 | **ChatGPT-5 Images** | `chatgpt5-imagens-praticas.md` | Cinematic language, shot lists, visual composition |
-| **Claude** | `claude-best-practices.md` | Extended Thinking, Structured Outputs, XML markup, prefill techniques, Constitutional AI |
+| **Claude** | `Model - Claude.md` | Extended Thinking, Structured Outputs, XML markup, prefill techniques, Constitutional AI |
 | **Gemini** | `gemini-praticas.md` | Multimodal prompts, long context, Workspace integration |
 | **Sora** | `sora-praticas.md` | Video generation, cinematic language, camera movements |
 | **Cursor AI** | `Model - Cursor AI.md` | Workflow optimization, integration guidelines |

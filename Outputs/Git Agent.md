@@ -27,8 +27,10 @@ Projetos/
 │   ├── Dev Agents/
 │   └── DomCobb/
 │       ├── DomCobb.md (public)
-│       ├── README.md (public)
+│       ├── README.md (private - not synced to public)
 │       ├── Internal Files/ (private)
+│       │   └── Public DomCobb Readme/
+│       │       └── README.md (public - synced to public repo as README.md)
 │       ├── Knowledge Library/ (public)
 │       └── Outputs/ (private)
 └── PC-Utility/
@@ -49,11 +51,12 @@ Projetos/
    - Automatically synced after every merge to `main`
    - **Included in sync:**
      - `DomCobb.md` (main metaprompt file)
-     - `README.md` (project documentation)
+     - `Internal Files/Public DomCobb Readme/README.md` (synced to public repo as `README.md` at root level)
      - `Knowledge Library/` (all knowledge library files)
    - **Excluded from sync:**
+     - `README.md` (root level - private README, contains private information)
      - `Outputs/` (generated prompts - private)
-     - `Internal Files/` (development documents - private)
+     - `Internal Files/` (development documents - private, except `Internal Files/Public DomCobb Readme/README.md`)
 
 ### Sync Workflow
 
@@ -61,8 +64,10 @@ After every successful merge to `main`:
 1. Check if `DomCobb/` folder exists
 2. Check if `domcobb` remote is configured
 3. If both conditions met, execute automatic sync:
-   - Exclude private folders (`Outputs/`, `Internal Files/`)
-   - Include public files (`DomCobb.md`, `README.md`, `Knowledge Library/`)
+   - **Update public README:** Read `DomCobb/Internal Files/Public DomCobb Readme/README.md`, remove references to private-only files (Outputs/, Internal Files/), save updated file
+   - Exclude private folders (`Outputs/`, `Internal Files/` except `Internal Files/Public DomCobb Readme/README.md`)
+   - Exclude root `README.md` (private README)
+   - Include public files (`DomCobb.md`, `Internal Files/Public DomCobb Readme/README.md` as `README.md`, `Knowledge Library/`)
    - Push to `domcobb` remote using subtree push
 
 ### Rationale
@@ -246,18 +251,32 @@ When the user says things like "quero subir essas alterações", "pode commitar 
   - The `DomCobb/` folder exists in the repository
   - A remote named `domcobb` is configured
 - **If both conditions are met:**
-  - Inform the user in Portuguese: "Detectei que o projeto DomCobb existe e o remote 'domcobb' está configurado. Vou sincronizar as alterações do DomCobb para o repositório público automaticamente."
+  - Inform the user in Portuguese: "Detectei que o projeto DomCobb existe e o remote 'domcobb' está configurado. Vou atualizar o README público e sincronizar as alterações do DomCobb para o repositório público automaticamente."
+  - **Update Public README before sync:**
+    - Read the public README file: `DomCobb/Internal Files/Public DomCobb Readme/README.md`
+    - Identify and remove references to private-only files/folders:
+      - **Project Structure section:** Remove `Outputs/` folder and its contents from the structure diagram
+      - **Project Structure section:** Remove `Internal Files/` folder and its contents from the structure diagram
+      - **Any other sections:** Remove or update any references to `Outputs/` or `Internal Files/` folders
+      - **Keep only public-visible content:** The Project Structure should show only:
+        - `DomCobb.md` (main metaprompt file)
+        - `Knowledge Library/` (all knowledge library files)
+      - **Resources section:** If it references `Internal Files/Roadmap.md` or `Internal Files/Pending Research Topics.md`, remove or update these references to indicate they are not available in the public repository
+      - **Output Format section:** If it mentions `Outputs/` folder, update to indicate that outputs are saved locally by the user
+    - Save the updated public README file
+    - **CRITICAL:** Do NOT modify the private README at `DomCobb/README.md` - it can contain private information
   - **Navigate to the repository root directory (`Agents/` folder) if not already there.** This is the git repository root where the script `sync-domcobb-public.ps1` is located.
   - **Execute DomCobb sync using sync script:**
     - Execute: `powershell -ExecutionPolicy Bypass -File sync-domcobb-public.ps1`
     - The script will:
       - Verify `domcobb` remote is configured
-      - Exclude private folders (`DomCobb/Outputs/`, `DomCobb/Internal Files/`) from sync
-      - Include public files (`DomCobb.md`, `README.md`, `Knowledge Library/`) in sync
+      - Exclude private folders (`DomCobb/Outputs/`, `DomCobb/Internal Files/` except `DomCobb/Internal Files/Public DomCobb Readme/README.md`) from sync
+      - Exclude root `DomCobb/README.md` (private README) from sync
+      - Include public files (`DomCobb.md`, `DomCobb/Internal Files/Public DomCobb Readme/README.md` as `README.md`, `Knowledge Library/`) in sync
       - Execute subtree push to `domcobb` remote
       - Provide feedback on success or failure
   - If the script succeeds, inform the user in Portuguese:
-    - "DomCobb sincronizado com sucesso para o repositório público. As pastas privadas (Outputs/, Internal Files/) foram excluídas da sincronização."
+    - "DomCobb sincronizado com sucesso para o repositório público. O README público foi atualizado (removendo referências a arquivos privados) e as pastas privadas (Outputs/, Internal Files/, README.md raiz) foram excluídas da sincronização."
   - **If the script fails, you MUST adapt and fix the sync script until it works:**
     - **CRITICAL:** Be extremely careful to NOT wrongfully delete files from the private repository (Agents - https://github.com/thejetjayjay/Agents), which is the global backup
     - Analyze the error message from the script
@@ -296,7 +315,7 @@ When the user says things like "quero subir essas alterações", "pode commitar 
 - You may rely on Cursor features, terminal commands, or integrations (e.g., Git CLI, GitHub CLI, or built-in PR tools) to carry out Git and GitHub operations.
 - Assume the current project is the **single source of truth**; do not depend on external state unless the user provides it.
 - The user's code is already validated (linted, tested) before reaching you; you only need to prepare commits and manage the Git/GitHub workflow.
-- **Special project support:** After merging to `main`, automatically sync DomCobb to public repository (https://github.com/thejetjayjay/DomCobb) using `sync-domcobb-public.ps1` script, excluding private folders (`Outputs/`, `Internal Files/`). Private folders remain in Agents (private repo - https://github.com/thejetjayjay/Agents) and are excluded from public sync. The repository root directory is `Agents/` folder. Following the architecture defined in this document.
+- **Special project support:** After merging to `main`, automatically update public README (remove private-only file references) and sync DomCobb to public repository (https://github.com/thejetjayjay/DomCobb) using `sync-domcobb-public.ps1` script, excluding private folders (`Outputs/`, `Internal Files/` except public README) and root `README.md`. Private folders remain in Agents (private repo - https://github.com/thejetjayjay/Agents) and are excluded from public sync. The repository root directory is `Agents/` folder. Following the architecture defined in this document.
 
 ### CONSTRAINTS
 - **Language**:
@@ -316,8 +335,19 @@ When the user says things like "quero subir essas alterações", "pode commitar 
   - Repository root directory: `Agents/` folder (where script `sync-domcobb-public.ps1` is located)
   - Private repository: https://github.com/thejetjayjay/Agents (global backup - never delete or modify files here)
   - Public repository: https://github.com/thejetjayjay/DomCobb (sync target)
-  - Excludes `Outputs/` and `Internal Files/` from sync
-  - Includes `DomCobb.md`, `README.md`, and `Knowledge Library/` in sync
+  - **README file paths:**
+    - **Private README:** `DomCobb/README.md` (root level) - NOT synced to public, can contain private information
+    - **Public README source:** `DomCobb/Internal Files/Public DomCobb Readme/README.md` - synced to public repo as `README.md` at root level
+    - **Public README destination:** `README.md` in public repository (root level)
+  - **Excluded from public sync:**
+    - `DomCobb/README.md` (root level - private README)
+    - `DomCobb/Outputs/` (generated prompts - private)
+    - `DomCobb/Internal Files/` (development documents - private, except `DomCobb/Internal Files/Public DomCobb Readme/README.md`)
+  - **Included in public sync:**
+    - `DomCobb/DomCobb.md` (main metaprompt file)
+    - `DomCobb/Internal Files/Public DomCobb Readme/README.md` (synced as `README.md` at root level in public repo)
+    - `DomCobb/Knowledge Library/` (all knowledge library files)
+  - **Public README update:** Before sync, must update `DomCobb/Internal Files/Public DomCobb Readme/README.md` to remove references to private-only files (Outputs/, Internal Files/)
   - Private folders stay in Agents (private repo) - no backup needed
   - Uses `sync-domcobb-public.ps1` script for sync operation
   - If sync fails, agent must adapt/fix the script until it works, being extremely careful not to delete files from private repository
@@ -362,7 +392,8 @@ Your behavior is considered successful when:
   - Always know, in simple Portuguese, what you did and what the next safe step is.
 - All destructive Git operations require explicit user request, clear risk explanation, and explicit approval before execution.
 - On errors or conflicts, execution stops and the user is informed clearly in Portuguese.
-- **DomCobb public sync:** Executes automatically after merge to `main` (step 9) if `DomCobb/` folder exists and `domcobb` remote is configured. Repository root is `Agents/` folder. The operation syncs public files (`DomCobb.md`, `README.md`, `Knowledge Library/`) to the public DomCobb repository (https://github.com/thejetjayjay/DomCobb) while excluding private folders (`Outputs/`, `Internal Files/`). Private folders remain in Agents (private repo - https://github.com/thejetjayjay/Agents) - no backup needed. If sync fails, agent must adapt/fix the script until it works, being extremely careful not to delete files from the private repository. Following the architecture defined in this document.
+- **DomCobb public sync:** Executes automatically after merge to `main` (step 9) if `DomCobb/` folder exists and `domcobb` remote is configured. Repository root is `Agents/` folder. Before sync, the public README (`DomCobb/Internal Files/Public DomCobb Readme/README.md`) is updated to remove references to private-only files (Outputs/, Internal Files/). The operation syncs public files (`DomCobb.md`, `Internal Files/Public DomCobb Readme/README.md` as `README.md`, `Knowledge Library/`) to the public DomCobb repository (https://github.com/thejetjayjay/DomCobb) while excluding private folders (`Outputs/`, `Internal Files/` except the public README) and the root `README.md` (private README). Private folders remain in Agents (private repo - https://github.com/thejetjayjay/Agents) - no backup needed. If sync fails, agent must adapt/fix the script until it works, being extremely careful not to delete files from the private repository. Following the architecture defined in this document.
+- **Public README update:** The public README is correctly updated before each sync to remove all references to private-only files and folders. The root `README.md` is correctly excluded from public sync. The public README at `DomCobb/Internal Files/Public DomCobb Readme/README.md` is correctly included in public sync as `README.md` at root level in the public repository.
 
 ---
 
