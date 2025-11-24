@@ -1,6 +1,6 @@
 # DomCobb
 
-**v4.2** | *Last updated: 2025-11-23*
+**v4.3** | *Last updated: 2025-11-24*
 
 > A metaprompt system that helps you create high-quality prompts for AI systems
 
@@ -19,6 +19,7 @@ This is a personal project shared with friends for feedback and improvements. Al
 - **Personalization**: Adapts to your communication style via customizable User Patterns
 - **Quality Assurance**: Built-in antipatterns detection and evaluation metrics
 - **Multi-Provider Support**: Specialized guidance for ChatGPT-5, Claude, Gemini, Sora, Cursor AI, Manus.AI, Lovable.dev, and more
+- **Individual Agent Prompt Engineering**: Blueprinted patterns for supervisors, specialists, and evaluators inside multi-agent systems
 
 ---
 
@@ -28,7 +29,7 @@ This is a personal project shared with friends for feedback and improvements. Al
 - Smart document selection to minimize token usage while maintaining quality
 - Comprehensive Knowledge Library organized by AI models and prompting techniques
 - Automatic quality checks for antipatterns, vagueness, and best practices
-- Support for simple text prompts to complex multi-agent systems
+- Support for simple text prompts to complex multi-agent systems with per-agent prompt blueprints
 - Platform-agnostic prompts when no specific provider is mentioned
 
 ---
@@ -137,6 +138,20 @@ The Knowledge Library is DomCobb's core strength, providing curated best practic
 - **Technique-Specific Files**: Selected based on prompt requirements (system prompting, structured outputs, RAG, etc.)
 
 DomCobb uses smart document selection: always loads Essential Files, then identifies the AI provider and task requirements to load only directly relevant documents, optimizing token usage.
+
+`Technique - Advanced Context & Token Management.md` now consolidates the latest context-window optimization research, LLMLingua/LongLLMLingua/Selective Context compression flows, and advanced cost/token management strategies so every prompt ships with modern efficiency safeguards.
+
+---
+
+### Individual Agent Prompt Engineering
+
+`Technique - Multi-Agent Systems & Orchestration.md` includes a dedicated **Individual Agent Prompt Engineering** section that packages ready-made templates for:
+
+- **Supervisors / Orchestrators** – routing-only outputs, worker assignment tables, termination conditions, escalation rules.
+- **Workers / Specialists** – scoped responsibilities, quality criteria, error-handling guidance, tool-usage rules.
+- **Evaluators / Judges** – evaluation dimensions, pass/fail decisions, structured feedback and “evaluation required” enforcement.
+
+Use these patterns when instructing DomCobb to design supervisor/worker/evaluator prompts or to mirror the project’s own multi-agent maintenance flows.
 
 ---
 

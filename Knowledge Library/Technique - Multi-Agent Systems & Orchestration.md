@@ -740,6 +740,55 @@ Anthropic, in its implementation of a multi-agent research system, uses an **orc
 
 ---
 
+## Individual Agent Prompt Engineering in Multi-Agent Systems
+
+While orchestration architectures define **how agents coordinate**, individual agent prompts define **how each agent thinks, decides, and behaves**. Poorly engineered prompts for supervisors, workers, and evaluators are one of the main hidden causes of multi-agent failures in production, even when the overall architecture is sound.
+
+### Best Practices for Individual Agent Prompts
+
+The following table summarizes essential best practices for engineering prompts at the individual agent level inside multi-agent systems. These practices complement orchestration-level techniques such as supervisor/worker patterns, evaluators, and Graph-of-Thought workflows.
+
+| **Practice Category** | **Best Practice** | **Why It Matters** | **Implementation Difficulty** |
+|----------------------|-------------------|-------------------|------------------------------|
+| **Agent Role Definition** | Define agent role, goal, and boundaries explicitly in the system prompt | Prevents scope creep and ensures consistent behavior across interactions | Low |
+| **Prompt Structure** | Use hierarchical organization: system-level instructions → task-specific prompts → tool documentation | Simplifies debugging and enables selective updates without side effects | Medium |
+| **Output Formatting** | Enforce structured outputs (JSON/Pydantic schemas) with explicit validation | Eliminates parsing ambiguity and enables reliable automation | Low |
+| **Failure Handling** | Include explicit failure modes for missing data, ambiguous inputs, and conflicting requirements | Transforms unpredictable failures into structured, handleable errors | Medium |
+| **Negative Instructions** | Define what agents absolutely cannot do (data boundaries, action boundaries, disclosure boundaries) | Prevents creative problem-solving from causing production disasters | Low |
+| **Communication Patterns** | Encode handoff conditions and inter-agent messaging protocols in prompts | Enables reliable coordination between specialized agents | High |
+| **Versioning Strategy** | Apply semantic versioning (major.minor.patch) adapted for behavioral changes | Provides clear understanding of change magnitude and testing requirements | Medium |
+| **Testing Workflow** | Implement progressive validation: unit tests → integration tests → load tests → production monitoring | Catches issues before customer impact at appropriate scale | High |
+| **Deployment Process** | Use staged rollouts: staging environment → gradual production rollout → A/B testing | Limits exposure when issues emerge and enables data-driven optimization | High |
+| **Rollback Mechanisms** | Enable one-click reversion to previous prompt versions without code changes | Minimizes user impact during incidents and reduces recovery time | Medium |
+| **Context Optimization** | Use progressive disclosure: retrieve context incrementally rather than front-loading | Maintains focus while reducing token consumption and improving response times | Medium |
+| **Tool Documentation** | Provide clear tool definitions with headers, examples, and expected outputs | Ensures agents understand capabilities and constraints, reducing tool misuse | Low |
+| **Error Recovery** | Return tool errors as results (not exceptions) with explanatory messages | Allows agents to recover and retry rather than cascading failures | Low |
+| **Observability** | Track prompt-level metrics (latency, token count, success rate, quality scores) | Enables data-driven optimization and rapid incident response | High |
+| **Collaboration** | Enable non-technical stakeholders to iterate prompts through visual interfaces | Accelerates optimization by leveraging domain expertise without code changes | Medium |
+
+### Prompt Patterns by Agent Type
+
+Different agent types require distinct prompt structures:
+
+- **Supervisor / Orchestrator agents**
+  - Focus on **routing logic, delegation criteria, quality gates, and termination conditions**.
+  - Prompts should list available workers explicitly, constrain outputs to simple routing decisions (e.g., *only* worker name or `FINISH`/`COMPLETE`), and forbid the supervisor from executing worker tasks directly.
+  - Termination conditions and escalation rules (to evaluators or humans) must be spelled out to avoid infinite loops or premature completion.
+
+- **Worker / Specialist agents**
+  - Focus on **clear task scope, quality standards, feedback incorporation, and tool usage rules**.
+  - Prompts should enumerate responsibilities and non-responsibilities, define concrete quality criteria, and explain how to respond to supervisor/evaluator feedback.
+  - Tool access must be explicit (which tools exist, when to use each, and what good tool outputs look like), with boundaries against using unsupported tools or modifying out-of-scope artifacts.
+
+- **Evaluator / Judge agents**
+  - Focus on **evaluation criteria, approval/rejection logic, and structured feedback**.
+  - Prompts should define scoring dimensions (e.g., correctness, safety, policy compliance), require explicit pass/fail decisions, and return actionable feedback for refinement.
+  - In production, evaluator steps should be **hardcoded as mandatory** in workflows, not left as optional tool calls that agents can skip.
+
+Collectively, these patterns ensure that individual agents behave predictably within the orchestration architecture, enabling reliable delegation, evaluation, and recovery when combined with the system-level practices described in the rest of this document.
+
+---
+
 ## Error Handling and Resilience in Multi-Agent Systems
 
 The inherent complexity of multi-agent systems, with multiple autonomous components interacting, introduces significant challenges in error handling and ensuring resilience. Failures in one agent can quickly propagate, leading to cascading disruptions and inconsistent results. Research has identified at least 14 distinct failure modes, including specification errors, misalignment, and verification errors, with under-specification accounting for approximately 15% of recorded failures. To build robust systems, it is essential to incorporate proactive strategies for error detection, containment, and recovery.

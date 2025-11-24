@@ -494,3 +494,296 @@ Use this checklist to verify your mastery of advanced context and token manageme
 
 [12] **DataCamp - Prompt Compression: A Guide With Python Examples.** Tutorial on prompt compression techniques with practical code examples. (Accessed: 2025-11-21, Reliability: 8/10)
 [https://www.datacamp.com/tutorial/prompt-compression](https://www.datacamp.com/tutorial/prompt-compression)
+
+## 9. Advanced Context Window Optimization (Extended)
+
+This section consolidates advanced research on **context as a finite resource** and on **window optimization strategies** that go beyond the basic techniques already mentioned in this guide.
+
+### 9.1 Context as a Finite Resource and “Context Rot”
+
+- Treat the context window as a **limited attention budget**, not as “free space”:
+  - Transformer self‑attention scales with \\(n^2\\) token pairs; very long prompts dilute attention across many relationships.
+  - Training distributions are biased toward shorter sequences (2K–8K), so effective utilization degrades as you approach 100K+ tokens.
+- **Context rot** and **lost‑in‑the‑middle**:
+  - Accuracy for retrieval tasks drops as context grows (e.g., 95% → 70% as you go from 2K to 50K tokens), even when the relevant fact is present.
+  - Models over‑attend to the **first** and **last** 10–20% of context (primacy/recency) and under‑attend the middle.
+- Practical implications:
+  - Do not “just stuff everything into context”; aggressively prioritize **high‑signal tokens**.
+  - Place **critical instructions, queries and key documents** at the beginning or end, not buried in the middle.
+
+### 9.2 The “Right Altitude” Principle
+
+- Avoid both extremes:
+  - **Too low (over‑specification):** brittle, rule‑based prompts full of conditionals and edge cases; high token cost and poor generalization.
+  - **Too high (under‑specification):** vague instructions (“be helpful”) with no concrete behavioral guidance.
+- Aim for the **Goldilocks zone**:
+  - Provide **task, role, tone and output‑format** guidance, plus a small number of targeted rules that fix observed failure modes.
+  - Evolve prompts iteratively: start minimal, observe failures, then add **focused specificity** instead of giant checklists.
+
+### 9.3 Core Long‑Context Strategies (Map/Refine/Rerank/Hybrid)
+
+For large documents and agent workflows, combine these patterns:
+
+- **Chunking & sliding windows**
+  - Split inputs into overlapping chunks (~1–3K tokens, 10–20% overlap) and process independently when global relationships are weak.
+- **Map‑Reduce**
+  - Map: summarize or extract from each chunk in parallel.  
+  - Reduce: synthesize the partial outputs into a final result (possibly hierarchically for 100K+ tokens).
+- **Refine**
+  - Process chunks sequentially, carrying forward and **updating a running analysis**.  
+  - Good for narratives and documents where later sections depend on earlier ones.
+- **Map‑Rerank**
+  - First, map over chunks to extract candidate answers or evidence.  
+  - Then, **rank by relevance** to the query and feed only the top‑k into the final reasoning step, reducing noise and token usage.
+- **Hybrid strategies**
+  - Mix the above: e.g., map‑rerank to filter chunks, then refine only over the **relevant subset**, or combine RAG retrieval with in‑prompt chunking.
+
+### 9.4 Context Pruning and Attention‑Aware Placement
+
+- **Pruning (Provence‑style)**
+  - Use a lightweight classifier or scoring function to remove low‑relevance sentences before they enter the main prompt.
+  - Target: remove **40–60%** of retrieved content while keeping answer quality equal or better.
+- **Dynamic token pruning (LazyLLM‑style)**
+  - Conceptually: only keep full key/value representations for **high‑attention tokens**, approximating or dropping low‑importance ones.
+  - Even if you do not modify the model internals, you can:
+    - Preferentially keep high‑information segments.
+    - Drop or heavily summarize parts that historically receive little attention.
+- **Attention‑aware placement**
+  - Beginning (first 10–20% of context): system instructions, guardrails, task definition, *most relevant* document(s).
+  - Early‑middle: few‑shot examples or short summaries.
+  - Middle: lower‑priority context and secondary docs.
+  - End (last 10–20%): user question, output‑format spec, and any final “key facts”.
+
+### 9.5 Adaptive Context Budgeting (Implementation Pattern)
+
+A practical way to operationalize token budgets is to allocate **per‑component budgets** and compress selectively:
+
+```python
+class AdaptiveContextBudgeter:
+    def __init__(self, total_budget=4000):
+        self.total_budget = total_budget
+        self.default_allocations = {
+            "instruction": 0.10,
+            "examples": 0.15,
+            "retrieved_docs": 0.60,
+            "query": 0.05,
+            "output_spec": 0.05,
+            "buffer": 0.05,
+        }
+
+    def calculate_budgets(self, allocations=None):
+        allocations = allocations or self.default_allocations
+        return {
+            section: int(self.total_budget * frac)
+            for section, frac in allocations.items()
+        }
+```
+
+Use this pattern to:
+- Preserve instructions and query almost intact.
+- Apply **aggressive compression** only to verbose, redundant sections (retrieved docs, long histories, etc.).
+- Log **per‑component token usage** to spot obvious waste (e.g., examples consuming 50% of the window).
+
+### 9.6 Skills Checklist (Context Optimization)
+
+- Understands **context rot**, **lost‑in‑the‑middle** and attention patterns.
+- Can implement and combine **chunking, map‑reduce, refine and map‑rerank**.
+- Can deploy **sentence‑level pruning** in RAG pipelines and measure token savings vs. quality.
+- Can design and maintain a **dynamic context budget** per component type.
+- Can explain and apply the **right altitude** principle when iterating on system prompts.
+
+## 10. Advanced Prompt Compression (LLMLingua, LongLLMLingua, Selective Context)
+
+This section extends the basic compression step in this guide with state‑of‑the‑art **algorithmic prompt compression**.
+
+### 10.1 Compression Method Taxonomy
+
+- **Knowledge‑distillation compression**
+  - Train a smaller “student” model to produce compressed prompts (or soft embeddings) that preserve a larger “teacher” model’s behavior.
+  - Best when you control training infrastructure and have a **stable, high‑volume task**.
+- **Encoding‑based compression**
+  - Represent larger spans of text as dense vectors or learned codes; useful for retrieval and semantic reasoning, less so when exact wording matters.
+- **Filtering‑based compression (most practical)**
+  - Score sentences/phrases/tokens by importance (perplexity, information gain, or relevance) and **delete low‑value units**.
+  - Tunable, interpretable and deployable today without retraining base LLMs.
+
+### 10.2 LLMLingua: Coarse‑to‑Fine Token Filtering
+
+- Uses a **small LM** (e.g., GPT‑2‑small, XLM‑RoBERTa) to:
+  - First remove low‑value sentences (coarse pass),
+  - Then remove low‑importance tokens inside remaining sentences (fine pass).
+- Key properties:
+  - Typical **4–20x compression** with <2–3% accuracy loss on many benchmarks.
+  - 1.7–5.7x end‑to‑end **latency reduction**, even after counting compression overhead.
+  - Compressed prompts can still be “decompressed” by a strong LLM for human review.
+
+Example: compress a full prompt before sending to the main model:
+
+```python
+from llmlingua import PromptCompressor
+
+compressor = PromptCompressor(
+    model_name="microsoft/llmlingua-2-xlm-roberta-large-meetingbank"
+)
+
+def compress_prompt_for_llm(prompt: str, question: str, compression_ratio: float = 4.0) -> str:
+    original_tokens = len(prompt.split())
+    target_tokens = int(original_tokens / compression_ratio)
+
+    result = compressor.compress_prompt(
+        prompt,
+        question=question,
+        target_token=target_tokens,
+        condition_compare=True,          # question-aware
+        use_sentence_level_filter=True,
+        rank_method="longllmlingua",
+        reorder_context="sort",
+    )
+
+    return result["compressed_prompt"]
+```
+
+### 10.3 LongLLMLingua: RAG‑Optimized Compression
+
+For RAG and other long‑context workloads, LongLLMLingua adds:
+
+- **Document re‑ranking and reordering**
+  - Combines retrieval scores and information density to place **most important docs first**, mitigating lost‑in‑the‑middle.
+- **Question‑aware compression (contrastive perplexity)**
+  - Measures how much a token’s perplexity changes **when conditioned on the question**; larger drops → higher importance.
+- **Adaptive compression per document**
+  - Light compression (e.g., 2x) for the top‑1 doc, heavy compression (10–20x) for lower‑relevance docs.
+- **Subsequence recovery**
+  - Keeps a mapping between compressed and original text so that answers can be projected back onto the full source when needed.
+
+In practice:
+- Expect **4–8x compression** on multi‑document RAG prompts.
+- Often **improves accuracy** vs. uncompressed prompts by suppressing noise and re‑ordering context.
+- Saves **tens of thousands of dollars/year** at scale when using commercial APIs.
+
+### 10.4 Selective Context: Information‑Theoretic Filtering
+
+- Uses **self‑information** (\\(I = -\\log P(token \| context)\\)) to keep only high‑information units.
+- Works at **token, phrase or sentence** level, with multi‑granularity pipelines:
+  - Remove low‑information sentences → compress phrases → optionally prune tokens.
+- Strengths:
+  - Strong control over compression ratio via a single **reduce_ratio** parameter.
+  - Good multilingual support and high interpretability.
+
+High‑level usage:
+
+```python
+from selective_context import SelectiveContext
+
+sc = SelectiveContext(model_type="gpt2", lang="en")
+
+def selective_compress(text: str, question: str, keep_ratio: float = 0.4) -> str:
+    return sc.compress(
+        context=question + " " + text,
+        reduce_ratio=keep_ratio,
+        reduce_level="sentence",   # or "phrase" / "token"
+    )
+```
+
+### 10.5 When to Use Advanced Compression
+
+- You routinely hit **context limits** even after manual optimization and basic budgeting.
+- You run **RAG over many documents** (10–20 chunks or more) and see lost‑in‑the‑middle failure modes.
+- You need **4x+ token reduction** but cannot afford to lose accuracy.
+- You operate at volumes where 50–90% cost savings translate into **material budget impact**.
+
+## 11. Cost Optimization & Token Management (Extended)
+
+This section integrates cost‑focused research with the practical pipeline from earlier sections.
+
+### 11.1 Cost Structures and Where Money Goes
+
+- Different providers have very different prices per 1M tokens (input vs. output vs. cached):
+  - Output tokens are typically **2–4x** more expensive than input.
+  - Cached tokens (prompt caching) are typically **75–90% cheaper** than fresh tokens.
+- For a typical high‑volume app before optimization:
+  - 60% of spend on **fresh input tokens**, 30% on **outputs**, 10% on **cached/infrastructure**.
+- After aggressive optimization (routing, caching, compression, output control):
+  - Fresh input can drop by **80%+**, output by **40–60%**, with total bill reduced **50–70%**.
+
+### 11.2 Strategy Overview (How to Actually Save 50–90%)
+
+Combine the following levers:
+
+- **Prompt & context optimization**
+  - Manual trimming and structural improvements (this guide’s core focus) → 30–40% token reduction.
+  - Advanced compression for long prompts (Section 10) → 4–20x reduction where applicable.
+- **Intelligent routing**
+  - Classify tasks by complexity and route simple ones to **cheaper models** (small GPT‑4.1, Gemini Flash, Claude Haiku, etc.).
+  - Reserve premium models only for **expert‑level** or high‑stakes calls.
+- **Aggressive caching**
+  - Combine provider‑level prompt caching with application‑level exact + semantic caches.
+  - Focus caching on **expensive operations and frequent queries** (e.g., long system prompts, FAQs, expensive RAG flows).
+- **Output control**
+  - Constrain length (“answer in 2–3 sentences”, `max_tokens`), use compact structured outputs (JSON), and avoid verbose prose when not needed.
+- **Batching and provider optimization**
+  - Batch similar requests where APIs support it, and benchmark providers/models for cost vs. quality vs. latency.
+
+### 11.3 Example: Simple Cost‑Aware Router
+
+Instead of always calling the most expensive model, use a router that selects the **cheapest model that meets a quality floor**:
+
+```python
+from enum import Enum
+
+class TaskComplexity(Enum):
+    SIMPLE = "simple"
+    MODERATE = "moderate"
+    COMPLEX = "complex"
+    EXPERT = "expert"
+
+MODEL_SPECS = {
+    "gpt-4.1-nano":   {"max_complexity": TaskComplexity.SIMPLE,   "input": 0.10, "output": 0.30, "quality": 7.0},
+    "gemini-2.5-flash": {"max_complexity": TaskComplexity.MODERATE, "input": 0.075, "output": 0.30, "quality": 8.3},
+    "gpt-4.1-mini":   {"max_complexity": TaskComplexity.COMPLEX,  "input": 0.40, "output": 1.20, "quality": 8.5},
+    "claude-3.5-sonnet": {"max_complexity": TaskComplexity.EXPERT, "input": 3.00, "output": 15.00, "quality": 9.7},
+}
+
+def pick_model(complexity: TaskComplexity, expected_output_tokens: int, input_tokens: int, min_quality: float = 8.0) -> str:
+    candidates = []
+    for name, spec in MODEL_SPECS.items():
+        if spec["quality"] < min_quality:
+            continue
+        if list(TaskComplexity).index(spec["max_complexity"]) < list(TaskComplexity).index(complexity):
+            continue
+        cost = (
+            input_tokens * spec["input"] / 1_000_000
+            + expected_output_tokens * spec["output"] / 1_000_000
+        )
+        candidates.append((name, cost))
+    if not candidates:
+        return "claude-3.5-sonnet"
+    return sorted(candidates, key=lambda x: x[1])[0][0]
+```
+
+This kind of routing alone frequently yields **30–40% cost reduction** with no quality loss.
+
+### 11.4 Monitoring, Alerts and ROI
+
+- **Cost monitoring**
+  - Track cost per request, per endpoint and per model; compute daily/weekly totals.
+  - Set daily budgets and trigger alerts when **80%+** of budget is consumed.
+- **Anomaly detection**
+  - Keep a rolling window of recent request costs and alert when a single call is **3σ above** the recent average (likely a bug or abuse).
+- **ROI calculation**
+  - For major optimization projects (e.g., implementing LLMLingua, refactoring routing), estimate:
+    - Engineering cost (hours × hourly rate),
+    - Expected monthly savings,
+    - Break‑even in months and **1‑year ROI multiple**.
+
+Rule of thumb:
+- If you can save **>$1–2K/month** and implementation costs are reasonable, optimization usually pays for itself within **1–3 months**.
+- At scale, comprehensive optimization (routing + caching + compression + output control) can deliver **10–50x ROI** over a year.
+
+### 11.5 Skills Checklist (Cost Optimization)
+
+- Can **compute and log token‑level costs** per request and per endpoint.
+- Can implement **routing**, **caching** and **output‑length constraints** in production code.
+- Can design and maintain **dashboards** for daily/weekly spend and per‑model breakdown.
+- Can run **A/B tests** to measure quality and cost deltas for new optimization strategies.
+- Can build simple **ROI models** to justify or reject complex optimization projects.
