@@ -1,6 +1,6 @@
 # DomCobb
 
-**v4.3** | *Last updated: 2025-11-24*
+**v4.3** | *Last updated: 2025-01-20*
 
 > A metaprompt system that helps you create high-quality prompts for AI systems
 
